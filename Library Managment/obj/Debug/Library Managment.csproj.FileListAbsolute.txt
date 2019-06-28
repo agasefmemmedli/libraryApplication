@@ -1,0 +1,29 @@
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\Library Managment.exe.config
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\Library Managment.exe
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\Library Managment.pdb
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\MaterialDesignColors.dll
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library Managment.csprojAssemblyReference.cache
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\App.g.cs
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library Managment_MarkupCompile.cache
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library Managment_MarkupCompile.lref
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\App.baml
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library Managment.g.resources
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library_Managment.Properties.Resources.resources
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library Managment.csproj.GenerateResource.cache
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library Managment.csproj.CoreCompileInputs.cache
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library Managment.csproj.CopyComplete
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library Managment.exe
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library Managment.pdb
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\EntityFramework.dll
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\EntityFramework.xml
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library_Managment.Migrations.Init.resources
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library_Managment.Migrations.UpdateData.resources
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\LoginWindow.g.cs
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\LoginWindow.baml
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\DashboardWindow.g.cs
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\DashboardWindow.baml
