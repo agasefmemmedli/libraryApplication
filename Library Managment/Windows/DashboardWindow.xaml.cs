@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Library_Managment.Utilities;
 
 namespace Library_Managment.Windows
 {
@@ -22,6 +23,54 @@ namespace Library_Managment.Windows
         public DashboardWindow()
         {
             InitializeComponent();
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnNewOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+            NewOrder newOrder = new NewOrder();
+            newOrder.ShowDialog();
+            //DataRelation data = new DataRelation();
+            //MessageBox.Show(data.FillReturnToday().ToString());
+        }
+
+        private void BtnReturnBook_Click(object sender, RoutedEventArgs e)
+        {
+            ReturnBooksWindow returnBooksWindow = new ReturnBooksWindow();
+            returnBooksWindow.ShowDialog();
+        }
+
+        private void BtnBooks_Click(object sender, RoutedEventArgs e)
+        {
+            BooksWindow booksWindow = new BooksWindow();
+            booksWindow.ShowDialog();
+        }
+
+        private void BtnCustomers_Click(object sender, RoutedEventArgs e)
+        {
+            CustomersWindow customersWindow = new CustomersWindow();
+            customersWindow.ShowDialog();
+        }
+
+        private void BtnAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            AdministratorsWindow administratorsWindow = new AdministratorsWindow();
+            administratorsWindow.ShowDialog();
+        }
+
+        private void BtnReports_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

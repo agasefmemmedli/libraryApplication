@@ -22,7 +22,7 @@ namespace Library_Managment
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly DAL.AppContext _context;
+        
         public MainWindow()
         {
             

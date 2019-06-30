@@ -169,7 +169,7 @@ namespace Library_Managment.Migrations
             Customer cust1 = new Customer
             {
                 FullName= "Memmedli Agasef",
-                CreateDate= DateTime.Now.AddDays(-5),
+                CreateDate= DateTime.Today.AddDays(-5),
                 PhoneNumber="+994552995921",
                 Address="Baku,Nizami,Naxcivaski 72",
                 Gender="Men"
@@ -178,7 +178,7 @@ namespace Library_Managment.Migrations
             Customer cust2 = new Customer
             {
                 FullName = "Ehmedov Behruz",
-                CreateDate = DateTime.Now.AddDays(-28),
+                CreateDate = DateTime.Today.AddDays(-28),
                 PhoneNumber = "+994556965575",
                 Address = "Tovuz,Qovlar kendi",
                 Gender = "Men"
@@ -186,7 +186,7 @@ namespace Library_Managment.Migrations
             Customer cust3 = new Customer
             {
                 FullName = "Memmedov Teymur",
-                CreateDate = DateTime.Now.AddDays(-95),
+                CreateDate = DateTime.Today.AddDays(-95),
                 PhoneNumber = "+994772456372",
                 Address = "Masalli,Hacitepe k",
                 Gender = "Men"
@@ -195,7 +195,7 @@ namespace Library_Managment.Migrations
             Customer cust4 = new Customer
             {
                 FullName = "Veliyev Xudaverdi",
-                CreateDate = DateTime.Now.AddDays(-16),
+                CreateDate = DateTime.Today.AddDays(-16),
                 PhoneNumber = "+994502993756",
                 Address = "Sumqayit,7 microray",
                 Gender = "Men"
@@ -204,7 +204,7 @@ namespace Library_Managment.Migrations
             Customer cust5 = new Customer
             {
                 FullName = "Isgenderov Aynur",
-                CreateDate = DateTime.Now.AddDays(-51),
+                CreateDate = DateTime.Today.AddDays(-51),
                 PhoneNumber = "+994709938282",
                 Address = "Gence,Nizami",
                 Gender = "Women"
@@ -213,7 +213,7 @@ namespace Library_Managment.Migrations
             Customer cust6 = new Customer
             {
                 FullName = "Hesenov Ates",
-                CreateDate = DateTime.Now.AddDays(-45),
+                CreateDate = DateTime.Today.AddDays(-45),
                 PhoneNumber = "+9948922121",
                 Address = "Baki,Binegedi,Eliaga Shix 21",
                 Gender = "Men"
@@ -222,7 +222,7 @@ namespace Library_Managment.Migrations
             Customer cust7 = new Customer
             {
                 FullName = "Baxisov Xamid",
-                CreateDate = DateTime.Now.AddDays(-15),
+                CreateDate = DateTime.Today.AddDays(-15),
                 PhoneNumber = "+994552913425",
                 Address = "Baki,Sabuncu, Oskar Efendiyev 1a",
                 Gender = "Men"
@@ -231,7 +231,7 @@ namespace Library_Managment.Migrations
             Customer cust8 = new Customer
             {
                 FullName = "Isgenderov Serxan",
-                CreateDate = DateTime.Now.AddDays(-102),
+                CreateDate = DateTime.Today.AddDays(-102),
                 PhoneNumber = "+9945565353",
                 Address = "Baki,Ehmedli,Nesreddin Tusi 38",
                 Gender = "Men"
@@ -255,7 +255,7 @@ namespace Library_Managment.Migrations
                 Login = "Admin",
                 Password = "admin",
                 FullName = "Memmedli Aga",
-                CreateDate = DateTime.Now.AddDays(-309),
+                CreateDate = DateTime.Today.AddDays(-309),
                 PhoneNumber="+9942995922",
                 Address= "Baku,Nizami,Naxcivaski 72",
                 Gender="Men"
@@ -271,8 +271,8 @@ namespace Library_Managment.Migrations
                     AdministratorId=admin.Id,
                     CustomerId=cust1.Id,
                     BookId=book1.Id,
-                    TakingDate=DateTime.Now,
-                    ReturnDate=DateTime.Now.AddDays(10),
+                    TakingDate=DateTime.Today,
+                    ReturnDate=DateTime.Today.AddDays(10),
                     Price=(book1.Price/28)*10
                 },
                 new RentedBook
@@ -280,8 +280,8 @@ namespace Library_Managment.Migrations
                     AdministratorId=admin.Id,
                     CustomerId=cust1.Id,
                     BookId=book5.Id,
-                    TakingDate=DateTime.Now,
-                    ReturnDate=DateTime.Now.AddDays(17),
+                    TakingDate=DateTime.Today,
+                    ReturnDate=DateTime.Today.AddDays(17),
                     Price=(book1.Price/28)*17
                 },
                 new RentedBook
@@ -289,8 +289,8 @@ namespace Library_Managment.Migrations
                     AdministratorId=admin.Id,
                     CustomerId=cust1.Id,
                     BookId=book1.Id,
-                    TakingDate=DateTime.Now,
-                    ReturnDate=DateTime.Now.AddDays(28),
+                    TakingDate=DateTime.Today,
+                    ReturnDate=DateTime.Today.AddDays(28),
                     Price=(book1.Price/28)*28
                 }
             };
@@ -301,8 +301,8 @@ namespace Library_Managment.Migrations
                     AdministratorId=admin.Id,
                     CustomerId=cust4.Id,
                     BookId=book1.Id,
-                    TakingDate=DateTime.Now,
-                    ReturnDate=DateTime.Now.AddDays(4),
+                    TakingDate=DateTime.Today,
+                    ReturnDate=DateTime.Today.AddDays(4),
                     Price=(book1.Price/28)*4
                 },
                 new RentedBook
@@ -310,8 +310,8 @@ namespace Library_Managment.Migrations
                     AdministratorId=admin.Id,
                     CustomerId=cust4.Id,
                     BookId=book5.Id,
-                    TakingDate=DateTime.Now,
-                    ReturnDate=DateTime.Now.AddDays(7),
+                    TakingDate=DateTime.Today,
+                    ReturnDate=DateTime.Today.AddDays(7),
                     Price=(book1.Price/28)*7
                 },
                 new RentedBook
@@ -319,8 +319,8 @@ namespace Library_Managment.Migrations
                     AdministratorId=admin.Id,
                     CustomerId=cust4.Id,
                     BookId=book1.Id,
-                    TakingDate=DateTime.Now,
-                    ReturnDate=DateTime.Now.AddDays(8),
+                    TakingDate=DateTime.Today,
+                    ReturnDate=DateTime.Today.AddDays(8),
                     Price=(book1.Price/28)*8
                 }
             };

@@ -11,9 +11,9 @@
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         mc:Ignorable="d"
-        Title="Library Managment" Icon="..\Images\ligicon.ico" Height="400" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Library Managment" Icon="..\Images\ligicon.ico" Height="400" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Button x:Name="btnLogin" Content="Login" Margin="106,0,106,70" Style="{DynamicResource MaterialDesignRaisedButton}" Click="BtnLogin_Click" Height="32" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnLogin" Content="Login" Margin="106,0,106,70" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Click="BtnLogin_Click" Height="32" VerticalAlignment="Bottom"/>
         <TextBox x:Name="tbLogin" Height="26" Margin="66,139,66,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <PasswordBox x:Name="tbPassword" Margin="66,195,66,0" VerticalAlignment="Top"/>
         <Label x:Name="lblLogin" Content="Login" Margin="121,112,121,0" VerticalAlignment="Top" RenderTransformOrigin="1.014,1.325" Width="50"/>

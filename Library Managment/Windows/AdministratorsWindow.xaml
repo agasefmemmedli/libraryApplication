@@ -1,0 +1,35 @@
+﻿<Window x:Class="Library_Managment.Windows.AdministratorsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Managment.Windows"
+        mc:Ignorable="d"
+        Title="Administrators" Icon="..\Images\ligicon.ico" Height="550" Width="920" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF5426A6">
+            <Button x:Name="btnAddAdministrator" Content="Add Administrator" HorizontalAlignment="Left" Margin="20,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38"  />
+            <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="20,489,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38" BorderBrush="#FFAEEA00" Click="BtnClose_Click" />
+            <Button x:Name="btnUpdateAdministrator" Content="Update Administrator" HorizontalAlignment="Left" Margin="20,123,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38"  />
+            <Button x:Name="btnDeleteAdministrator" Content="Delete Administrator" HorizontalAlignment="Left" Margin="20,166,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38" />
+        </Grid>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="26" Margin="560,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225"/>
+        <Label x:Name="lblSearch" Content="Search Administrator" HorizontalAlignment="Left" Margin="560,27,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgAdministrator" HorizontalAlignment="Left" Margin="560,100,0,20.8" Width="325" Background="#FF5575E4"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="790,54,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="95" Height="26" BorderBrush="#FFAEEA00"/>
+        <Label x:Name="lblAdministratorFullName" Content="Administrator Full Name" HorizontalAlignment="Left" Margin="250,101,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbCustomerFullName" HorizontalAlignment="Left" Height="26" Margin="250,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+        <Label x:Name="lblPhoneNumber" Content="Phone Number" HorizontalAlignment="Left" Margin="250,271,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPhoneNumber" HorizontalAlignment="Left" Height="26" Margin="250,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+        <Label x:Name="lblAdress" Content="Adress" HorizontalAlignment="Left" Margin="250,329,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPosition" HorizontalAlignment="Left" Height="26" Margin="250,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+        <Label x:Name="lblGender" Content="Gender" HorizontalAlignment="Left" Margin="250,386,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbGender" HorizontalAlignment="Left" Margin="250,412,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblAdministratorLogin" Content="Administrator Login" HorizontalAlignment="Left" Margin="250,158,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbAdministratorLogin" HorizontalAlignment="Left" Height="26" Margin="250,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+        <Label x:Name="lblAdministratorPassword" Content="Administrator Password" HorizontalAlignment="Left" Margin="250,214,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="tbAdministratorPassword" HorizontalAlignment="Left" Height="26" Margin="250,240,0,0" VerticalAlignment="Top" Width="273"/>
+
+
+    </Grid>
+</Window>

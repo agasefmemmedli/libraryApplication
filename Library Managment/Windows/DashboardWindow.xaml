@@ -4,17 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_Managment.Windows"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         mc:Ignorable="d"
         Title="Dashboard" Icon="..\Images\ligicon.ico" Height="550" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF673AB7">
-            <Button x:Name="btnNewOrder" Content="New Order" HorizontalAlignment="Left" Margin="38,80,0,0" VerticalAlignment="Top" Width="131" Height="38"/>
-            <Button x:Name="btnReturnBook" Content="Return Book" HorizontalAlignment="Left" Margin="38,150,0,0" VerticalAlignment="Top" Width="131" Height="38"/>
-            <Button x:Name="btnBooks" Content="Books" HorizontalAlignment="Left" Margin="38,220,0,0" VerticalAlignment="Top" Width="131" Height="38"/>
-            <Button x:Name="btnCustomers" Content="Customers" HorizontalAlignment="Left" Margin="38,360,0,0" VerticalAlignment="Top" Width="131" Height="38"/>
-            <Button x:Name="btnAdmin" Content="Administrators" HorizontalAlignment="Left" Margin="38,290,0,0" VerticalAlignment="Top" Width="131" Height="38"/>
-            <Button x:Name="btnReports" Content="Reports" HorizontalAlignment="Left" Margin="38,430,0,0" VerticalAlignment="Top" Width="131" Height="38"/>
+        <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF5426A6">
+            <Button x:Name="btnNewOrder" Content="New Orders" HorizontalAlignment="Left" Margin="38,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="131" Height="38" Click="BtnNewOrder_Click"/>
+            <Button x:Name="btnReturnBook" Content="Return Book" HorizontalAlignment="Left" Margin="38,150,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="131" Height="38" Click="BtnReturnBook_Click"/>
+            <Button x:Name="btnBooks" Content="Books" HorizontalAlignment="Left" Margin="38,220,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="131" Height="38" Click="BtnBooks_Click"/>
+            <Button x:Name="btnCustomers" Content="Customers" HorizontalAlignment="Left" Margin="38,360,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="131" Height="38" Click="BtnCustomers_Click"/>
+            <Button x:Name="btnAdmin" Content="Administrators" HorizontalAlignment="Left" Margin="38,290,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="131" Height="38" Click="BtnAdmin_Click"/>
+            <Button x:Name="btnReports" Content="Reports" HorizontalAlignment="Left" Margin="38,430,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="131" Height="38" Click="BtnReports_Click"/>
         </Grid>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="511" Margin="214,0,0,0" VerticalAlignment="Top" Width="770" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem x:Name="tabToday" Header="Return Today" Background="#FF673AB7" Foreground="Black" BorderBrush="#FF673AB7" IsSelected="True">
+                <DataGrid x:Name="dgToday" Margin="0,0,-5,-5.6" Style="{DynamicResource MaterialDesignDataGrid}" SelectionChanged="DataGrid_SelectionChanged" Background="#FFC5D2FF"/>
+            </TabItem>
+            <TabItem x:Name="tabTomorrow" Header="Return Tomorrow" BorderBrush="#FF673AB7" Foreground="Black" Background="#FF673AB7">
+                <Grid Background="White" Margin="0,0,0,-10.6"/>
+            </TabItem>
+            <TabItem x:Name="tabDelay" Header="Delay" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="54" BorderBrush="#FF673AB7" Foreground="Black" Margin="-2.2,0,0,0" RenderTransformOrigin="0.707,0.609">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FF673AB7" Offset="0"/>
+                        <GradientStop Color="#FF673AB7" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="White" Margin="0,0,1,-11.6"/>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>

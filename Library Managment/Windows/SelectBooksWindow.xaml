@@ -1,0 +1,23 @@
+﻿<Window x:Class="Library_Managment.Windows.SelectBooksWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Managment.Windows"
+        mc:Ignorable="d"
+        Title="Select Books" Icon="..\Images\ligicon.ico" Height="550" Width="920" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF5426A6">
+            <Label x:Name="lblSelectsCustomer" Content="Click to select the book" HorizontalAlignment="Left" Margin="38,134,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00" HorizontalContentAlignment="Center"/>
+            <Button x:Name="btnSelectBooks" Content="Select Books" HorizontalAlignment="Left" Margin="38,476,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" BorderBrush="#FFAEEA00" Click="BtnSelectBooks_Click"/>
+        </Grid>
+        <TextBox x:Name="tbSearchBooks" HorizontalAlignment="Left" Margin="245,52,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="165" Height="26"/>
+        <Label x:Name="lblCustomerSearch" Content="Books Search" HorizontalAlignment="Left" Margin="245,26,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="245,100,0,21" Width="260" Background="#FF5575E4"/>
+        <Button x:Name="btnSearchBooks" Content="Search" HorizontalAlignment="Left" Margin="420,53,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="85" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="-0.185,0.469"/>
+        <DataGrid x:Name="dataGrid_Copy" HorizontalAlignment="Left" Margin="560,53,0,21" Width="325" Background="#FF5575E4"/>
+        <Label x:Name="lblSelectedBooks" Content="Selected Books Name , Return Date , Count and Price" HorizontalAlignment="Left" Margin="560,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.521,-0.008" Width="325"/>
+
+
+    </Grid>
+</Window>

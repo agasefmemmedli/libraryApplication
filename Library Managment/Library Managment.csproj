@@ -41,8 +41,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
@@ -68,6 +68,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Windows\AdministratorsWindow.xaml.cs">
+      <DependentUpon>AdministratorsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BooksWindow.xaml.cs">
+      <DependentUpon>BooksWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CustomersWindow.xaml.cs">
+      <DependentUpon>CustomersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NewOrderWindow.xaml.cs">
+      <DependentUpon>NewOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ReportsWindow.xaml.cs">
+      <DependentUpon>ReportsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ReturnBooksWindow.xaml.cs">
+      <DependentUpon>ReturnBooksWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SelectBooksWindow.xaml.cs">
+      <DependentUpon>SelectBooksWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SelectCustomerWindow.xaml.cs">
+      <DependentUpon>SelectCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SelectedBookPropertyWindow.xaml.cs">
+      <DependentUpon>SelectedBookPropertyWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Windows\AdministratorsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\BooksWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CustomersWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\DashboardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,19 +120,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DAL\AppContext.cs" />
-    <Compile Include="Migrations\201906281548515_Init.cs" />
-    <Compile Include="Migrations\201906281548515_Init.Designer.cs">
-      <DependentUpon>201906281548515_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906281608252_UpdateData.cs" />
-    <Compile Include="Migrations\201906281608252_UpdateData.Designer.cs">
-      <DependentUpon>201906281608252_UpdateData.cs</DependentUpon>
+    <Compile Include="Migrations\201906290900157_CreateDatabase.cs" />
+    <Compile Include="Migrations\201906290900157_CreateDatabase.Designer.cs">
+      <DependentUpon>201906290900157_CreateDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\RentedBook.cs" />
+    <Compile Include="Utilities\DataRelation.cs" />
     <Compile Include="Utilities\Login.cs" />
     <Compile Include="Windows\DashboardWindow.xaml.cs">
       <DependentUpon>DashboardWindow.xaml</DependentUpon>
@@ -102,6 +138,30 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\NewOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ReportsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ReturnBooksWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SelectBooksWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SelectCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SelectedBookPropertyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -117,11 +177,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201906281548515_Init.resx">
-      <DependentUpon>201906281548515_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906281608252_UpdateData.resx">
-      <DependentUpon>201906281608252_UpdateData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906290900157_CreateDatabase.resx">
+      <DependentUpon>201906290900157_CreateDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

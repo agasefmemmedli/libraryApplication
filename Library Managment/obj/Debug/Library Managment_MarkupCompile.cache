@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\agase\source\repos\Library Managment\Library Managment\App.xaml
-243146451
+112007735674
 
-171765449239
-18-883611873
-Windows\DashboardWindow.xaml;Windows\LoginWindow.xaml;
+25-2049728759
+18-1824505506
+Windows\AdministratorsWindow.xaml;Windows\BooksWindow.xaml;Windows\CustomersWindow.xaml;Windows\DashboardWindow.xaml;Windows\LoginWindow.xaml;Windows\NewOrderWindow.xaml;Windows\ReportsWindow.xaml;Windows\ReturnBooksWindow.xaml;Windows\SelectBooksWindow.xaml;Windows\SelectCustomerWindow.xaml;Windows\SelectedBookPropertyWindow.xaml;
 
-False
+True
 
