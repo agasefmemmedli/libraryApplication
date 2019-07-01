@@ -11,20 +11,36 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
+using Library_Managment.Utilities;
+using Library_Managment.Models;
 
 namespace Library_Managment.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для SelectBooksWindow.xaml
-    /// </summary>
+   
     public partial class SelectBooksWindow : Window
     {
+        DAL.AppContext context = new DAL.AppContext();
+        DataRelation dr;
         public SelectBooksWindow()
         {
+            dr = new DataRelation();
             InitializeComponent();
+            FillDG();
         }
 
+        public void FillDG()
+        {
+            this.dgBooks.Items.Clear();
+            List<Book> books = dr.FillBooksList();
+            this.dgBooks.ItemsSource = books;
+        }
         private void BtnSelectBooks_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

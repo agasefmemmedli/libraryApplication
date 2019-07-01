@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Library_Managment.Utilities;
+using Library_Managment.Models;
 
 namespace Library_Managment.Windows
 {
@@ -19,9 +21,19 @@ namespace Library_Managment.Windows
     /// </summary>
     public partial class AdministratorsWindow : Window
     {
+        DAL.AppContext context = new DAL.AppContext();
+        DataRelation dr;
         public AdministratorsWindow()
         {
+            dr = new DataRelation();
             InitializeComponent();
+            FillDG();
+        }
+
+        public void FillDG()
+        {
+            List<Administrator> books = dr.FillAdministratorsList();
+            this.dgAdministrator.ItemsSource = books;
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)

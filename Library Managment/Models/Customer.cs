@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library_Managment.Models
 {
-    class Customer
+    public class Customer
     {
 
         public int Id { get; set; }

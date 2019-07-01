@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Library_Managment.Models;
+using Library_Managment.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +21,20 @@ namespace Library_Managment.Windows
     /// </summary>
     public partial class CustomersWindow : Window
     {
+        DAL.AppContext context = new DAL.AppContext();
+        DataRelation dr;
         public CustomersWindow()
         {
+            dr = new DataRelation();
             InitializeComponent();
+            FillDG();
         }
-
+        public void FillDG()
+        {
+            this.dgCustomers.Items.Clear();
+            List<Customer> customers = dr.FillCustomersList();
+            this.dgCustomers.ItemsSource = customers;
+        }
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

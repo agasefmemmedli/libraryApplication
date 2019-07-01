@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Library_Managment.Utilities;
+using Library_Managment.Models;
 
 namespace Library_Managment.Windows
 {
@@ -20,13 +21,27 @@ namespace Library_Managment.Windows
     /// </summary>
     public partial class SelectCustomerWindow : Window
     {
+        DAL.AppContext context = new DAL.AppContext();
+        DataRelation dr;
         public SelectCustomerWindow()
         {
+            dr = new DataRelation();
             InitializeComponent();
+            FillDG();
         }
 
-        
+        public void FillDG()
+        {
+            this.dgCustomers.Items.Clear();
+            List<Customer> customers = dr.FillCustomersList();
+            this.dgCustomers.ItemsSource = customers;
+        }
         private void BtnSaveOrder_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

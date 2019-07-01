@@ -32,7 +32,12 @@ namespace Library_Managment.Windows
 
         private void BtnSaveOrder_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
 
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library_Managment.Models
 {
-    class Administrator
+    public class Administrator
     {
 
         public int Id { get; set; }

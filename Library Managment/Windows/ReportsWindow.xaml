@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_Managment.Windows"
         mc:Ignorable="d"
-        Title="Reports" Height="550" Width="1000">
+        Title="Reports" Height="550"  Icon="..\Images\ligicon.ico" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF5426A6">
             <Button x:Name="btnExportToExcell" Content="Export To Excell" HorizontalAlignment="Left" Margin="38,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38"  />
@@ -13,8 +13,19 @@
         </Grid>
         <DatePicker x:Name="dpFrom" HorizontalAlignment="Left" Margin="227,10,0,0" VerticalAlignment="Top"  SelectedDateFormat="Short" Width="99"/>
         <DatePicker x:Name="dpTo" HorizontalAlignment="Left" Margin="341,10,0,0" VerticalAlignment="Top"  SelectedDateFormat="Short" Width="99"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="495,10,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="85" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="-0.185,0.469" Click="BtnSaveBook_Click"/>
-        <DataGrid x:Name="dgReports" HorizontalAlignment="Left" Height="471" Margin="214,50,0,-0.2" VerticalAlignment="Top" Width="775" Background="#FF5575E4"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="495,10,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="85" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="-0.185,0.469"/>
+        <DataGrid x:Name="dgReports" HorizontalAlignment="Left" Height="471" Margin="214,50,0,-0.2" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" VerticalAlignment="Top" Width="775" Background="#FF5575E4">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Administrator Name"  Binding="{Binding AdministratorFullName}" />
+                <DataGridTextColumn Header="Customer Name" Binding="{Binding CustomerFullName}" />
+                <DataGridTextColumn Header="Book  Name" Binding="{Binding BookName}" />
+                <DataGridTextColumn Header="Taking Date" Binding="{Binding TakingDate}" />
+                <DataGridTextColumn Header="Return Date" Binding="{Binding ReturnDate}" />
+                <DataGridTextColumn Header="Infact Date" Binding="{Binding InfactDate}" />
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

@@ -70,7 +70,13 @@ namespace Library_Managment.Windows
 
         private void BtnReports_Click(object sender, RoutedEventArgs e)
         {
+            ReportsWindow reportsWindow = new ReportsWindow();
+            reportsWindow.ShowDialog();
+        }
 
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

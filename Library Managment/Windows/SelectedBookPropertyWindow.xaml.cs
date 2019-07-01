@@ -33,5 +33,10 @@ namespace Library_Managment.Windows
         {
             this.Close();
         }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

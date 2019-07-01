@@ -9,18 +9,19 @@
     <Grid>
         <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF5426A6">
             <Button x:Name="btnSelectCustomer" Content="Select Customer" HorizontalAlignment="Left" Margin="38,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnSelectCustomer_Click" />
-            <Button x:Name="btnSaveOrder" Content="Save Order" HorizontalAlignment="Left" Margin="38,489,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" BorderBrush="#FFAEEA00" Click="BtnSaveOrder_Click"/>
-            <Label x:Name="lblOrderSummary" Content="Order Summary" HorizontalAlignment="Left" Margin="38,429,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
-            <Label x:Name="lblPriceCount" Content="50" HorizontalAlignment="Left" Margin="155,429,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
-            <Label x:Name="lblDelay" Content="Delay " HorizontalAlignment="Left" Margin="38,400,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
-            <Label x:Name="lbldelayCount" Content="0" HorizontalAlignment="Left" Margin="155,399,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00" Width="22"/>
-            <Label x:Name="lblBookPrice" Content="Book Price" HorizontalAlignment="Left" Margin="38,368,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
-            <Label x:Name="lblBookPriceCount" Content="50" HorizontalAlignment="Left" Margin="155,368,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00" RenderTransformOrigin="0.262,0.531" Width="22"/>
+            <Button x:Name="btnSaveOrder" Content="Save Order" HorizontalAlignment="Left" Margin="38,426,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" BorderBrush="#FFAEEA00" Click="BtnSaveOrder_Click"/>
+            <Label x:Name="lblOrderSummary" Content="Order Summary" HorizontalAlignment="Left" Margin="38,386,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
+            <Label x:Name="lblPriceCount" Content="50" HorizontalAlignment="Left" Margin="155,386,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
+            <Label x:Name="lblDelay" Content="Delay " HorizontalAlignment="Left" Margin="38,357,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
+            <Label x:Name="lbldelayCount" Content="0" HorizontalAlignment="Left" Margin="155,356,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00" Width="22"/>
+            <Label x:Name="lblBookPrice" Content="Book Price" HorizontalAlignment="Left" Margin="38,325,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
+            <Label x:Name="lblBookPriceCount" Content="50" HorizontalAlignment="Left" Margin="155,325,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00" RenderTransformOrigin="0.262,0.531" Width="22"/>
+            <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="38,494,0,21" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Width="142" Height="Auto" BorderBrush="#FFAEEA00" Click="BtnClose_Click" />
         </Grid>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="26" Margin="245,53,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="260"/>
         <Label x:Name="lblCustomerName" Content="Customer Name" HorizontalAlignment="Left" Margin="245,26,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="245,100,0,21" Width="260" Background="#FF5575E4"/>
-        <DataGrid x:Name="dataGrid_Copy" HorizontalAlignment="Left" Margin="560,53,0,21" Width="325" Background="#FF5575E4"/>
+        <DataGrid x:Name="dgCustomerReturnBook" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Left" Margin="245,100,0,21" Width="260" Background="#FF5575E4"/>
+        <DataGrid x:Name="dgCustomerTackedBook" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Left" Margin="560,53,0,21" Width="325" Background="#FF5575E4"/>
         <Label x:Name="lblRentedBooks" Content="Rented Books Name , Return Date , Count and Price" HorizontalAlignment="Left" Margin="560,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.521,-0.008" Width="325"/>
 
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_Managment.Windows"
         mc:Ignorable="d"
-        Title="Customers" Icon="..\Images\ligicon.ico" Height="550" Width="920" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Customers" Icon="..\Images\ligicon.ico" Height="550" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF5426A6">
             <Button x:Name="btnAddCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="38,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38"  />
@@ -13,18 +13,26 @@
             <Button x:Name="btnUpdateCustomer" Content="Update Customer" HorizontalAlignment="Left" Margin="38,123,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38"  />
             <Button x:Name="btnDeleteCustomer" Content="Delete Customer" HorizontalAlignment="Left" Margin="38,166,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" />
         </Grid>
-        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="26" Margin="560,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225"/>
-        <Label x:Name="lblSearch" Content="Search Customer" HorizontalAlignment="Left" Margin="560,27,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dgCustomers" HorizontalAlignment="Left" Margin="560,100,0,20.8" Width="325" Background="#FF5575E4"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="790,54,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="95" Height="26" BorderBrush="#FFAEEA00"/>
-        <Label x:Name="lblCustomerFullName" Content="Customer Full Name" HorizontalAlignment="Left" Margin="250,101,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbCustomerFullName" HorizontalAlignment="Left" Height="26" Margin="250,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
-        <Label x:Name="lblPhoneNumber" Content="Phone Number" HorizontalAlignment="Left" Margin="250,158,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPhoneNumber" HorizontalAlignment="Left" Height="26" Margin="250,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
-        <Label x:Name="lblAdress" Content="Adress" HorizontalAlignment="Left" Margin="250,216,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPosition" HorizontalAlignment="Left" Height="26" Margin="250,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
-        <Label x:Name="lblGender" Content="Gender" HorizontalAlignment="Left" Margin="250,273,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbGender" HorizontalAlignment="Left" Margin="250,299,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="26" Margin="355,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="524"/>
+        <Label x:Name="lblSearch" Content="Search Customer" HorizontalAlignment="Left" Margin="355,68,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgCustomers" HorizontalAlignment="Left" Margin="214,135,0,5" Width="765" Background="#FF5575E4" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Full Name"  Binding="{Binding FullName}" />
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}" />
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}" />
+                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="884,94,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="95" Height="26" BorderBrush="#FFAEEA00"/>
+        <Label x:Name="lblCustomerFullName" Content="Customer Full Name" HorizontalAlignment="Left" Margin="214,8,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbCustomerFullName" HorizontalAlignment="Left" Height="26" Margin="214,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+        <Label x:Name="lblPhoneNumber" Content="Phone Number" HorizontalAlignment="Left" Margin="500,8,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPhoneNumber" HorizontalAlignment="Left" Height="26" Margin="500,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <Label x:Name="lblAdress" Content="Adress" HorizontalAlignment="Left" Margin="714,7,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPosition" HorizontalAlignment="Left" Height="26" Margin="714,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+        <Label x:Name="lblGender" Content="Gender" HorizontalAlignment="Left" Margin="214,66,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbGender" HorizontalAlignment="Left" Margin="214,92,0,0" VerticalAlignment="Top" Width="120"/>
 
 
 
