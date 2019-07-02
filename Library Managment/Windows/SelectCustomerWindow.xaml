@@ -16,12 +16,12 @@
         </Grid>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="214,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="296" Height="26"/>
         <Label x:Name="lblCustomerSearch" Content="Customer Search" HorizontalAlignment="Left" Margin="214,27,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dgCustomers" HorizontalAlignment="Left" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Margin="214,100,0,5" Width="420" Background="#FF5575E4">
+        <DataGrid x:Name="dgCustomers" HorizontalAlignment="Left" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Margin="214,100,0,5" Width="420" Background="#FFC5D2FF">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Full Name"  Binding="{Binding FullName}" />
-                <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}" />
-                <DataGridTextColumn Header="Address" Binding="{Binding Address}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Full Name"  Binding="{Binding FullName}" />
+                <DataGridTextColumn  IsReadOnly="True" Header="Phone Number" Binding="{Binding PhoneNumber}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Address" Binding="{Binding Address}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnSaveOrder_Copy" Content="Search" HorizontalAlignment="Left" Margin="524,53,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="110" Height="26" BorderBrush="#FFAEEA00"/>

@@ -21,8 +21,7 @@ namespace Library_Managment.Windows
     /// </summary>
     public partial class ReportsWindow : Window
     {
-        DAL.AppContext context = new DAL.AppContext();
-        DataRelation dr;
+        private readonly DataRelation dr;
         public ReportsWindow()
         {
             dr = new DataRelation();
@@ -38,7 +37,11 @@ namespace Library_Managment.Windows
         public void FillDG()
         {
             List<RentedBookList> rentedBookLists = dr.FillReportsList();
-            this.dgReports.ItemsSource = rentedBookLists;
+
+            foreach (RentedBookList rentedBookList in rentedBookLists)
+            {
+                this.dgReports.Items.Add(rentedBookList);
+            }
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)

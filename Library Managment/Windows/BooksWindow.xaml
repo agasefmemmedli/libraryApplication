@@ -8,21 +8,21 @@
         Title="BooksWindow" Icon="..\Images\ligicon.ico" Height="550" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid RenderTransformOrigin="0.498,0.528">
         <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF5426A6">
-            <Button x:Name="btnAddBook" Content="Add Book" HorizontalAlignment="Left" Margin="38,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38"  />
+            <Button x:Name="btnAddBook" Content="Add Book" HorizontalAlignment="Left" Margin="38,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnAddBook_Click"  />
             <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="38,489,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" BorderBrush="#FFAEEA00" Click="BtnClose_Click" />
-            <Button x:Name="btnUpdateBook" Content="Update Book" HorizontalAlignment="Left" Margin="38,123,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38"  />
-            <Button x:Name="btnDeleteBook" Content="Delete Book" HorizontalAlignment="Left" Margin="38,166,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" />
+            <Button x:Name="btnUpdateBook" Visibility="Hidden" Content="Update Book" HorizontalAlignment="Left" Margin="38,123,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnUpdateBook_Click"  />
+            <Button x:Name="btnDeleteBook" Visibility="Hidden" Content="Delete Book" HorizontalAlignment="Left" Margin="38,166,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnDeleteBook_Click" />
         </Grid>
         <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="26" Margin="495,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="355"/>
         <Label x:Name="lblSearchBook" Content="Search Book" HorizontalAlignment="Left" Margin="495,67,0,0" VerticalAlignment="Top" Width="113"/>
-        <DataGrid x:Name="dgBooks" AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Left" Margin="214,135,0,5" Width="765" Background="#FF5575E4">
+        <DataGrid x:Name="dgBooks" SelectedItem="{Binding Book}"  SelectionChanged="DgBooks_SelectionChanged"  AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Left" Margin="214,135,0,5" Width="765" Background="#FFC5D2FF">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Name"  Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Author" Binding="{Binding Author}" />
-                <DataGridTextColumn Header="Count" Binding="{Binding Count}" />
-                <DataGridTextColumn Header="Position" Binding="{Binding Position}" />
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
+                <DataGridTextColumn Width="300" IsReadOnly="True" Header="Name"  Binding="{Binding Name}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Author" Binding="{Binding Author}" />
+                <DataGridTextColumn Width="100" IsReadOnly="True" Header="Count" Binding="{Binding Count}" />
+                <DataGridTextColumn Width="100" IsReadOnly="True" Header="Position" Binding="{Binding Position}" />
+                <DataGridTextColumn Width="100" IsReadOnly="True" Header="Price" Binding="{Binding Price}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="867,94,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="99" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="0.354,0.423"/>

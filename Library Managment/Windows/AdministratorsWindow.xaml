@@ -8,31 +8,31 @@
         Title="Administrators" Icon="..\Images\ligicon.ico" Height="550" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF5426A6">
-            <Button x:Name="btnAddAdministrator" Content="Add Administrator" HorizontalAlignment="Left" Margin="20,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38"  />
+            <Button x:Name="btnAddAdministrator" Content="Add Administrator" HorizontalAlignment="Left" Margin="20,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38" Click="BtnAddAdministrator_Click"  />
             <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="20,489,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38" BorderBrush="#FFAEEA00" Click="BtnClose_Click" />
-            <Button x:Name="btnUpdateAdministrator" Content="Update Administrator" HorizontalAlignment="Left" Margin="20,123,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38"  />
-            <Button x:Name="btnDeleteAdministrator" Content="Delete Administrator" HorizontalAlignment="Left" Margin="20,166,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38" />
+            <Button x:Name="btnUpdateAdministrator" Content="Update Administrator" HorizontalAlignment="Left" Margin="20,123,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38" Click="BtnUpdateAdministrator_Click"  />
+            <Button x:Name="btnDeleteAdministrator" Content="Delete Administrator" HorizontalAlignment="Left" Margin="20,166,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38" Click="BtnDeleteAdministrator_Click" />
         </Grid>
         <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="26" Margin="214,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="646"/>
         <Label x:Name="lblSearch" Content="Search Administrator" HorizontalAlignment="Left" Margin="214,118,0,0" Height="26" VerticalAlignment="Top" Width="347"/>
-        <DataGrid x:Name="dgAdministrator" HorizontalAlignment="Left" Margin="214,185,0,5" Width="765" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Background="#FF5575E4">
+        <DataGrid x:Name="dgAdministrator" SelectedItem="{Binding Administrator}"  SelectionChanged="DgAdministrator_SelectionChanged" HorizontalAlignment="Left" Margin="214,185,0,5" Width="765" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Background="#FFC5D2FF">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Full Name"  Binding="{Binding FullName}" />
-                <DataGridTextColumn Header="Login" Binding="{Binding Login}" />
-                <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
-                <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}" />
-                <DataGridTextColumn Header="Address" Binding="{Binding Address}" />
-                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
+                <DataGridTextColumn Width="200"  IsReadOnly="True" Header="Full Name"  Binding="{Binding FullName}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Login" Binding="{Binding Login}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Password" Binding="{Binding Password}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Phone Number" Binding="{Binding PhoneNumber}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Address" Binding="{Binding Address}" />
+                <DataGridTextColumn Width="100" IsReadOnly="True" Header="Gender" Binding="{Binding Gender}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="865,144,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="95" Height="26" BorderBrush="#FFAEEA00"/>
         <Label x:Name="lblAdministratorFullName" Content="Administrator Full Name" HorizontalAlignment="Left" Margin="214,3,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbCustomerFullName" HorizontalAlignment="Left" Height="26" Margin="214,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+        <TextBox x:Name="tbAdministratorFullName" HorizontalAlignment="Left" Height="26" Margin="214,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
         <Label x:Name="lblPhoneNumber" Content="Phone Number" HorizontalAlignment="Left" Margin="214,59,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbPhoneNumber" HorizontalAlignment="Left" Height="26" Margin="214,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <Label x:Name="lblAdress" Content="Adress" HorizontalAlignment="Left" Margin="432,58,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPosition" HorizontalAlignment="Left" Height="26" Margin="432,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+        <Label x:Name="lblAddress" Content="Adress" HorizontalAlignment="Left" Margin="432,58,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="26" Margin="432,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
         <Label x:Name="lblGender" Content="Gender" HorizontalAlignment="Left" Margin="720,57,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbGender" HorizontalAlignment="Left" Margin="720,83,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lblAdministratorLogin" Content="Administrator Login" HorizontalAlignment="Left" Margin="502,3,0,0" VerticalAlignment="Top"/>

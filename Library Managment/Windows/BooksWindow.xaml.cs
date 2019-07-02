@@ -24,28 +24,156 @@ namespace Library_Managment.Windows
     {
         DAL.AppContext context = new DAL.AppContext();
         DataRelation dr;
+        Book bk = new Book();
         public BooksWindow()
         {
             dr = new DataRelation();
             InitializeComponent();
             FillDG();
+             
+
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-
-
         public void FillDG()
         {
             this.dgBooks.Items.Clear();
-             List <Book> books = dr.FillBooksList();
-            this.dgBooks.ItemsSource = books;
+            List <Book> books = dr.FillBooksList();
+            foreach (Book book in books)
+            {
+                this.dgBooks.Items.Add(book);
+            }
+            
         }
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        private void DgBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnUpdateBook.Visibility = Visibility.Visible;
+            btnDeleteBook.Visibility = Visibility.Visible;
+            btnAddBook.Visibility = Visibility.Hidden;
+
+            bk = dgBooks.SelectedItem as Book;
+            if (bk != null)
+            {
+                tbBookName.Text = bk.Name.ToString();
+                tbAuthorName.Text = bk.Author.ToString();
+                tbBookCount.Text = bk.Count.ToString();
+                tbPosition.Text = bk.Position.ToString();
+                tbPrice.Text = bk.Price.ToString();
+            }
+            
+            
+        }
+
+        #region Reset Methods
+        private void ResetTextBox()
+        {
+            tbBookName.Text = string.Empty;
+            tbAuthorName.Text = string.Empty;
+            tbBookCount.Text = string.Empty;
+            tbPosition.Text = string.Empty;
+            tbPrice.Text = string.Empty;
+           
+        }
+
+        private void ResetFromLabels()
+        {
+            tbBookName.Foreground = Brushes.Black;
+            tbAuthorName.Foreground = Brushes.Black;
+            tbBookCount.Foreground = Brushes.Black;
+            tbPosition.Foreground = Brushes.Black;
+            tbPrice.Foreground = Brushes.Black;
+        }
+
+        private bool Validation()
+        {
+            ResetFromLabels();
+            if (string.IsNullOrEmpty(tbBookName.Text))
+            {
+                lblBookName.Foreground = Brushes.Red;
+                return false;
+            }
+            if (string.IsNullOrEmpty(tbAuthorName.Text))
+            {
+                lblAuthorName.Foreground = Brushes.Red;
+                return false;
+            }
+            if (string.IsNullOrEmpty(tbBookCount.Text))
+            {
+                lblBookCount.Foreground = Brushes.Red;
+                return false;
+            }
+            if (string.IsNullOrEmpty(tbPosition.Text))
+            {
+                lblPosition.Foreground = Brushes.Red;
+                return false;
+            }
+            if (string.IsNullOrEmpty(tbPrice.Text))
+            {
+                lblPrice.Foreground = Brushes.Red;
+                return false;
+            }
+            return true;
+        }
+        #endregion
+
+        #region CRUD
+        private void BtnAddBook_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Validation())
+            {
+                return;
+            }
+            Book book = new Book
+            { 
+               Name= tbBookName.Text ,
+               Author= tbAuthorName.Text,
+               Count=Convert.ToInt32(tbBookCount.Text),
+               Position= tbPosition.Text ,
+               Price=Convert.ToDecimal(tbPrice.Text)
+            };
+            dr.AddBooks(bk);
+        }
+        private void BtnUpdateBook_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Validation())
+            {
+                return;
+            }
+            Book newBook = new Book
+            {
+                Id = bk.Id,
+                Name = tbBookName.Text,
+                Author = tbAuthorName.Text,
+                Count = Convert.ToInt32(tbBookCount.Text),
+                Position = tbPosition.Text,
+                Price = Convert.ToDecimal(tbPrice.Text)
+            };
+            dr.UpdateBooks(newBook);
+        }
+        private void BtnDeleteBook_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Validation())
+            {
+                return;
+            } 
+            if (MessageBox.Show("Do you want to delete this book?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+            {
+                
+                dr.DeleteBooks(bk.Id);
+                FillDG();
+
+            }
+            
+            
+        }
+        #endregion
     }
 }

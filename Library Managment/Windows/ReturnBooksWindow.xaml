@@ -20,8 +20,8 @@
         </Grid>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="26" Margin="245,53,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="260"/>
         <Label x:Name="lblCustomerName" Content="Customer Name" HorizontalAlignment="Left" Margin="245,26,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dgCustomerReturnBook" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Left" Margin="245,100,0,21" Width="260" Background="#FF5575E4"/>
-        <DataGrid x:Name="dgCustomerTackedBook" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Left" Margin="560,53,0,21" Width="325" Background="#FF5575E4"/>
+        <DataGrid x:Name="dgCustomerReturnBook" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Left" Margin="245,100,0,21" Width="260" Background="#FFC5D2FF"/>
+        <DataGrid x:Name="dgCustomerTackedBook" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Left" Margin="560,53,0,21" Width="325" Background="#FFC5D2FF"/>
         <Label x:Name="lblRentedBooks" Content="Rented Books Name , Return Date , Count and Price" HorizontalAlignment="Left" Margin="560,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.521,-0.008" Width="325"/>
 
 

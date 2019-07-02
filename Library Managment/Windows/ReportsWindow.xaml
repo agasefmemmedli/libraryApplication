@@ -14,16 +14,16 @@
         <DatePicker x:Name="dpFrom" HorizontalAlignment="Left" Margin="227,10,0,0" VerticalAlignment="Top"  SelectedDateFormat="Short" Width="99"/>
         <DatePicker x:Name="dpTo" HorizontalAlignment="Left" Margin="341,10,0,0" VerticalAlignment="Top"  SelectedDateFormat="Short" Width="99"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="495,10,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="85" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="-0.185,0.469"/>
-        <DataGrid x:Name="dgReports" HorizontalAlignment="Left" Height="471" Margin="214,50,0,-0.2" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" VerticalAlignment="Top" Width="775" Background="#FF5575E4">
+        <DataGrid x:Name="dgReports" HorizontalAlignment="Left" Margin="214,50,0,5" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Width="775" Background="#FFC5D2FF">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Administrator Name"  Binding="{Binding AdministratorFullName}" />
-                <DataGridTextColumn Header="Customer Name" Binding="{Binding CustomerFullName}" />
-                <DataGridTextColumn Header="Book  Name" Binding="{Binding BookName}" />
-                <DataGridTextColumn Header="Taking Date" Binding="{Binding TakingDate}" />
-                <DataGridTextColumn Header="Return Date" Binding="{Binding ReturnDate}" />
-                <DataGridTextColumn Header="Infact Date" Binding="{Binding InfactDate}" />
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Administrator"  Binding="{Binding AdministratorFullName}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Customer" Binding="{Binding CustomerFullName}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Book" Binding="{Binding BookName}" />
+                <DataGridTextColumn Width="100" IsReadOnly="True" Header="Taking Date" Binding="{Binding TakingDate}" />
+                <DataGridTextColumn Width="100" IsReadOnly="True" Header="Return Date" Binding="{Binding ReturnDate}" />
+                <DataGridTextColumn Width="100" IsReadOnly="True" Header="Infact Date" Binding="{Binding InfactDate}" />
+                <DataGridTextColumn Width="100" IsReadOnly="True" Header="Price" Binding="{Binding Price}" />
             </DataGrid.Columns>
         </DataGrid>
 

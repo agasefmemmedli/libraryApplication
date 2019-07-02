@@ -34,7 +34,10 @@ namespace Library_Managment.Windows
         {
             this.dgCustomers.Items.Clear();
             List<Customer> customers = dr.FillCustomersList();
-            this.dgCustomers.ItemsSource = customers;
+            foreach (Customer customer in customers)
+            {
+                this.dgCustomers.Items.Add(customer);
+            }
         }
         private void BtnSaveOrder_Click(object sender, RoutedEventArgs e)
         {

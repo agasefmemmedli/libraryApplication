@@ -12,8 +12,9 @@ namespace Library_Managment.Utilities
 {
     public class DataRelation
     {
-        private DAL.AppContext _context = new DAL.AppContext();
+        private readonly DAL.AppContext _context = new DAL.AppContext();
 
+        #region Fill Methods
 
         public List<Book> FillBooksList()
         {
@@ -51,8 +52,6 @@ namespace Library_Managment.Utilities
 
             return rentedBooks;
         }
-
-
         public class RentedBookList
         {
             public int Id { get; set; }
@@ -68,32 +67,134 @@ namespace Library_Managment.Utilities
 
 
 
-        //public void FillReturnToday()
-        //{
-        //    //List<ReturnList> returnLists = _context.RentedBooks.Select(rb=> new ReturnList { Id = rb.Customer.Id, FullName = rb.Customer.FullName, PhoneNumber = rb.Customer.PhoneNumber, BookCount= _context.RentedBooks.(rb.CustomerId.) }).GroupBy(rb =>).ToList();
+        public List<ReturnDashboardList> FillDashboardList(DateTime date)
+        {
+            if (date > DateTime.Today)
+            {
+                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate == date).GroupBy(r => r.CustomerId).Select(rtb => new ReturnDashboardList
+                {
+                    Id = rtb.Key,
+                    BooksCount = rtb.Count(),
+                    CustomerFullName = rtb.FirstOrDefault().Customer.FullName,
+                    PhoneNumber = rtb.FirstOrDefault().Customer.PhoneNumber
+                }).ToList();
+                return returnLists;
+            }
+            else
+            {
+                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate < date).GroupBy(r => r.CustomerId).Select(rtb => new ReturnDashboardList
+                {
+                    Id = rtb.Key,
+                    BooksCount = rtb.Count(),
+                    CustomerFullName = rtb.FirstOrDefault().Customer.FullName,
+                    PhoneNumber = rtb.FirstOrDefault().Customer.PhoneNumber
+                }).ToList();
+                return returnLists;
+            }
+        }
+        public class ReturnDashboardList
+        {
+            public int Id { get; set; }
+
+            public string CustomerFullName { get; set; }
+
+            public string PhoneNumber { get; set; }
+
+            public int BooksCount { get; set; }
+        }
+        #endregion
+
+        #region Update Methods
+
+        public void UpdateBooks(Book bk)
+        {
+            Book book = _context.Books.Find(bk.Id);
+
+            book.Name = bk.Name;
+            book.Author = bk.Author;
+            book.Count = bk.Count;
+            book.Position = bk.Position;
+            book.Price = bk.Price;
+
+            _context.SaveChanges();
+        }
+        public void UpdateCustomer(Customer cs)
+        {
+            Customer customer = _context.Customers.Find(cs.Id);
+
+            customer.FullName = cs.FullName;
+            customer.CreateDate = cs.CreateDate;
+            customer.PhoneNumber = cs.PhoneNumber;
+            customer.Address = cs.Address;
+            customer.Gender = cs.Gender;
+            
+            _context.SaveChanges();
+        }
+
+        public void UpdateAdministrator(Administrator ad)
+        {
+            Administrator administrator = _context.Administrators.Find(ad.Id);
+
+            administrator.FullName = ad.FullName;
+            administrator.Login = ad.Login;
+            administrator.Password = ad.Password;
+            administrator.CreateDate = ad.CreateDate;
+            administrator.PhoneNumber = ad.PhoneNumber;
+            administrator.Address = ad.Address;
+            administrator.Gender = ad.Gender;
+
+            _context.SaveChanges();
+        }
 
 
 
-        //        //_context.RentedBooks.Select(rb => new { rb.CustomerId, rb.Customer.FullName, rb.Customer.PhoneNumber, rb.InfactDate.c });
+        #endregion
 
-        //    //_
-        //    //_context.RentedBooks.SqlQuery("SELECT RB.CustomerId AS ID, C.FullName AS 'FULL NAME', C.PhoneNumber AS 'PHONE NUMBER', COUNT(RB.CustomerId)AS BOOKS FROM  RentedBooks RB JOIN Customers C ON RB.CustomerId = C.Id GROUP BY  C.FullName, C.PhoneNumber, RB.CustomerId").ToList();
+        #region Delete Methods
 
+        public void DeleteBooks(int id)
+        {
+            Book book = _context.Books.Find(id);
+            _context.Books.Remove(book);
+            _context.SaveChanges();
+        }
+        public void DeleteCustomer(int id)
+        {
+            Customer customer = _context.Customers.Find(id);
+            _context.Customers.Remove(customer);
+            _context.SaveChanges();
+        }
 
-        //}
+        public void DeleteAdministrator(int id)
+        {
+            Administrator administrator = _context.Administrators.Find(id);
+            _context.Administrators.Remove(administrator);
+            _context.SaveChanges();
+        }
 
+        #endregion
 
+        #region Add Methods
+
+        public void AddBooks(Book book)
+        {
+            _context.Books.Add(book);
+            _context.SaveChanges();
+        }
+        public void AddCustomer(Customer customer)
+        {
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+        }
+        public void AddAdministrator(Administrator administrator)
+        {
+            _context.Administrators.Add(administrator);
+            _context.SaveChanges();
+        }
+
+        #endregion
     }
 
 
-    class ReturnList
-    {
-        public int Id { get; set; }
 
-        public string FullName { get; set; }
-
-        public string PhoneNumber { get; set; }
-
-        public int BookCount { get; set; }
-    }
 }

@@ -17,6 +17,5 @@
         <Button x:Name="btnSaveBook" Content="Save" HorizontalAlignment="Left" Margin="165,274,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="85" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="-0.185,0.469" Click="BtnSaveBook_Click"/>
         <DatePicker x:Name="dpReturnDate" HorizontalAlignment="Left" Margin="91,160,0,0" VerticalAlignment="Top"  SelectedDateFormat="Short" Width="92" HorizontalContentAlignment="Stretch"/>
         <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="40,274,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="85" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="-0.185,0.469" Click="BtnClose_Click"/>
-
     </Grid>
 </Window>

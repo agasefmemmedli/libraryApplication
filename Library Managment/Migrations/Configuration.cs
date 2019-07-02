@@ -144,26 +144,25 @@ namespace Library_Managment.Migrations
                 Position = "2/2",
                 Price = 89.9M
             };
-            if (context.Books.Any(b=>b.Name==book1.Name))
-            {
-                context.Books.Add(book1);
-                context.Books.Add(book2);
-                context.Books.Add(book3);
-                context.Books.Add(book4);
-                context.Books.Add(book5);
-                context.Books.Add(book6);
-                context.Books.Add(book7);
-                context.Books.Add(book8);
-                context.Books.Add(book9);
-                context.Books.Add(book10);
-                context.Books.Add(book11);
-                context.Books.Add(book12);
-                context.Books.Add(book13);
-                context.Books.Add(book14);
-                context.Books.Add(book15);
-                context.Books.Add(book16);
+            
+                context.Books.AddOrUpdate(book1);
+                context.Books.AddOrUpdate(book2);
+                context.Books.AddOrUpdate(book3);
+                context.Books.AddOrUpdate(book4);
+                context.Books.AddOrUpdate(book5);
+                context.Books.AddOrUpdate(book6);
+                context.Books.AddOrUpdate(book7);
+                context.Books.AddOrUpdate(book8);
+                context.Books.AddOrUpdate(book9);
+                context.Books.AddOrUpdate(book10);
+                context.Books.AddOrUpdate(book11);
+                context.Books.AddOrUpdate(book12);
+                context.Books.AddOrUpdate(book13);
+                context.Books.AddOrUpdate(book14);
+                context.Books.AddOrUpdate(book15);
+                context.Books.AddOrUpdate(book16);
                 context.SaveChanges();
-            }
+            
 
 
             Customer cust1 = new Customer
@@ -238,14 +237,14 @@ namespace Library_Managment.Migrations
             };
 
 
-            context.Customers.Add(cust1);
-            context.Customers.Add(cust2);
-            context.Customers.Add(cust3);
-            context.Customers.Add(cust4);
-            context.Customers.Add(cust5);
-            context.Customers.Add(cust6);
-            context.Customers.Add(cust7);
-            context.Customers.Add(cust8);
+            context.Customers.AddOrUpdate(cust1);
+            context.Customers.AddOrUpdate(cust2);
+            context.Customers.AddOrUpdate(cust3);
+            context.Customers.AddOrUpdate(cust4);
+            context.Customers.AddOrUpdate(cust5);
+            context.Customers.AddOrUpdate(cust6);
+            context.Customers.AddOrUpdate(cust7);
+            context.Customers.AddOrUpdate(cust8);
 
             context.SaveChanges();
 
@@ -260,7 +259,7 @@ namespace Library_Managment.Migrations
                 Address= "Baku,Nizami,Naxcivaski 72",
                 Gender="Men"
             };
-            context.Administrators.Add(admin);
+            context.Administrators.AddOrUpdate(admin);
             context.SaveChanges();
 
 

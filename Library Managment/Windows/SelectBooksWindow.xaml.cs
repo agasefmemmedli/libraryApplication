@@ -33,7 +33,10 @@ namespace Library_Managment.Windows
         {
             this.dgBooks.Items.Clear();
             List<Book> books = dr.FillBooksList();
-            this.dgBooks.ItemsSource = books;
+            foreach (Book book in books)
+            {
+                this.dgBooks.Items.Add(book);
+            }
         }
         private void BtnSelectBooks_Click(object sender, RoutedEventArgs e)
         {

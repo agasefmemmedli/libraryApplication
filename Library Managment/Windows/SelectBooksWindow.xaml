@@ -16,12 +16,12 @@
         <Label x:Name="lblCustomerSearch" Content="Books Search" HorizontalAlignment="Left" Margin="214,3,0,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="dgBooks" HorizontalAlignment="Left" Margin="214,60,0,249" Width="690" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Background="#FF5575E4">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Name"  Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Author" Binding="{Binding Author}" />
-                <DataGridTextColumn Header="Count" Binding="{Binding Count}" />
-                <DataGridTextColumn Header="Position" Binding="{Binding Position}" />
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Name"  Binding="{Binding Name}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Author" Binding="{Binding Author}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Count" Binding="{Binding Count}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Position" Binding="{Binding Position}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Price" Binding="{Binding Price}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnSearchBooks" Content="Search" HorizontalAlignment="Left" Margin="819,29,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="85" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="-0.185,0.469"/>

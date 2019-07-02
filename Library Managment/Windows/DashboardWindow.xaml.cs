@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Library_Managment.Utilities;
+using static Library_Managment.Utilities.DataRelation;
 
 namespace Library_Managment.Windows
 {
@@ -20,11 +21,34 @@ namespace Library_Managment.Windows
     /// </summary>
     public partial class DashboardWindow : Window
     {
+        private readonly DataRelation dr;
         public DashboardWindow()
         {
+            dr = new DataRelation();
             InitializeComponent();
+            FillDG();
         }
+        public void FillDG()
+        {
+            List<ReturnDashboardList> returnDashboardListsToday = dr.FillDashboardList(DateTime.Today);
+            List<ReturnDashboardList> returnDashboardListsTomorrow = dr.FillDashboardList(DateTime.Today.AddDays(1));
+            List<ReturnDashboardList> returnDashboardListsDelay = dr.FillDashboardList(DateTime.Today.AddDays(-1));
+            foreach (ReturnDashboardList returnDashboardList in returnDashboardListsToday)
+            {
+                this.dgToday.Items.Add(returnDashboardList);
+            }
+           
 
+            foreach (ReturnDashboardList returnDashboardList in returnDashboardListsTomorrow)
+            {
+                this.dgTomorrow.Items.Add(returnDashboardList);
+            }
+
+            foreach (ReturnDashboardList returnDashboardList in returnDashboardListsDelay)
+            {
+                this.dgDelay.Items.Add(returnDashboardList);
+            }
+        }
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
