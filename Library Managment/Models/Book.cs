@@ -19,13 +19,8 @@ namespace Library_Managment.Models
         public string Author { get; set; }
         public int Count { get; set; }
 
-        [StringLength(50)]
-        public string Position { get; set; }
-
-
         [Required, Column(TypeName = "money")]
         public decimal Price { get; set; }
-
 
         public List<RentedBook> RentedBooks { get; set; }
 

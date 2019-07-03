@@ -23,6 +23,9 @@ namespace Library_Managment.Windows
     {
         DAL.AppContext context = new DAL.AppContext();
         DataRelation dr;
+        Customer customer;
+
+        public event EventHandler OnSelected;
         public SelectCustomerWindow()
         {
             dr = new DataRelation();
@@ -39,8 +42,15 @@ namespace Library_Managment.Windows
                 this.dgCustomers.Items.Add(customer);
             }
         }
-        private void BtnSaveOrder_Click(object sender, RoutedEventArgs e)
+
+        private void DgCustomers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            customer = dgCustomers.SelectedItem as Customer;
+            lblCustomerFullName.Content = customer.FullName;
+        }
+        private void BtnSelectCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            OnSelected(customer, new EventArgs());
             this.Close();
         }
 

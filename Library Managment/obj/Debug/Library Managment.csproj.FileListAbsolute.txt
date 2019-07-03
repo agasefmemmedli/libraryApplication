@@ -33,8 +33,6 @@ C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Window
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\SelectCustomerWindow.baml
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\SelectBooksWindow.g.cs
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\SelectBooksWindow.baml
-C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\SelectedBookPropertyWindow.g.cs
-C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\SelectedBookPropertyWindow.baml
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\ReturnBooksWindow.g.cs
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\ReturnBooksWindow.baml
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\BooksWindow.g.cs
@@ -45,3 +43,4 @@ C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Window
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\AdministratorsWindow.baml
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\ReportsWindow.g.cs
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\ReportsWindow.baml
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library_Managment.Migrations.CreateNewTableInDatabase.resources

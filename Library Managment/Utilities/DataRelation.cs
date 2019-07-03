@@ -37,21 +37,20 @@ namespace Library_Managment.Utilities
         }
 
 
-        public List<RentedBookList> FillReportsList()
-        {
-            List<RentedBookList> rentedBooks = _context.RentedBooks.Select(rb=> new RentedBookList {
-                Id =rb.Id,
-                AdministratorFullName =rb.Administrator.FullName,
-                CustomerFullName=rb.Customer.FullName,
-                BookName=rb.Book.Name,
-                TakingDate=rb.TakingDate,
-                ReturnDate=rb.ReturnDate,
-                InfactDate=rb.InfactDate,
-                Price=rb.Price
-            }).ToList();
+        //public List<RentedBookList> FillReportsList()
+        //{
+        //    List<RentedBookList> rentedBooks = _context.RentedBooks.Select(rb=> new RentedBookList {
+        //        Id =rb.Id,
+        //        cus=rb.Customer.FullName,
+        //        BookName=rb.Book.Name,
+        //        TakingDate=rb.TakingDate,
+        //        ReturnDate=rb.ReturnDate,
+        //        InfactDate=rb.InfactDate,
+        //        Price=rb.Price
+        //    }).ToList();
 
-            return rentedBooks;
-        }
+        //    return rentedBooks;
+        //}
         public class RentedBookList
         {
             public int Id { get; set; }
@@ -66,28 +65,37 @@ namespace Library_Managment.Utilities
         }
 
 
+        public class SelectedBook
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public DateTime TakingDate { get; set; }
+            public DateTime ReturnDate { get; set; }
+            public int BooksCount { get; set; }
+            public decimal CalcPrice { get; set; }
 
+        }
         public List<ReturnDashboardList> FillDashboardList(DateTime date)
         {
-            if (date > DateTime.Today)
+            if (date >= DateTime.Today)
             {
-                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate == date).GroupBy(r => r.CustomerId).Select(rtb => new ReturnDashboardList
+                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate == date).GroupBy(r => r.OrderId).Select(rtb => new ReturnDashboardList
                 {
                     Id = rtb.Key,
                     BooksCount = rtb.Count(),
-                    CustomerFullName = rtb.FirstOrDefault().Customer.FullName,
-                    PhoneNumber = rtb.FirstOrDefault().Customer.PhoneNumber
+                    CustomerFullName = rtb.FirstOrDefault().Order.Customer.FullName,
+                    PhoneNumber = rtb.FirstOrDefault().Order.Customer.PhoneNumber
                 }).ToList();
                 return returnLists;
             }
             else
             {
-                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate < date).GroupBy(r => r.CustomerId).Select(rtb => new ReturnDashboardList
+                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate <= date).GroupBy(r => r.OrderId).Select(rtb => new ReturnDashboardList
                 {
                     Id = rtb.Key,
                     BooksCount = rtb.Count(),
-                    CustomerFullName = rtb.FirstOrDefault().Customer.FullName,
-                    PhoneNumber = rtb.FirstOrDefault().Customer.PhoneNumber
+                    CustomerFullName = rtb.FirstOrDefault().Order.Customer.FullName,
+                    PhoneNumber = rtb.FirstOrDefault().Order.Customer.PhoneNumber
                 }).ToList();
                 return returnLists;
             }
@@ -108,15 +116,15 @@ namespace Library_Managment.Utilities
 
         public void UpdateBooks(Book bk)
         {
-            Book book = _context.Books.Find(bk.Id);
+            //Book book = _context.Books.Find(bk.Id);
 
-            book.Name = bk.Name;
-            book.Author = bk.Author;
-            book.Count = bk.Count;
-            book.Position = bk.Position;
-            book.Price = bk.Price;
+            //book.Name = bk.Name;
+            //book.Author = bk.Author;
+            //book.Count = bk.Count;
+            //book.Position = bk.Position;
+            //book.Price = bk.Price;
 
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
         public void UpdateCustomer(Customer cs)
         {
@@ -126,7 +134,6 @@ namespace Library_Managment.Utilities
             customer.CreateDate = cs.CreateDate;
             customer.PhoneNumber = cs.PhoneNumber;
             customer.Address = cs.Address;
-            customer.Gender = cs.Gender;
             
             _context.SaveChanges();
         }
@@ -141,7 +148,6 @@ namespace Library_Managment.Utilities
             administrator.CreateDate = ad.CreateDate;
             administrator.PhoneNumber = ad.PhoneNumber;
             administrator.Address = ad.Address;
-            administrator.Gender = ad.Gender;
 
             _context.SaveChanges();
         }
@@ -189,6 +195,17 @@ namespace Library_Managment.Utilities
         public void AddAdministrator(Administrator administrator)
         {
             _context.Administrators.Add(administrator);
+            _context.SaveChanges();
+        }
+
+        public void AddOrder(Order order)
+        {
+            _context.Orders.Add(order);
+            _context.SaveChanges();
+        }
+        public void AddRentBook(RentedBook rentedBook)
+        {
+            _context.RentedBooks.Add(rentedBook);
             _context.SaveChanges();
         }
 

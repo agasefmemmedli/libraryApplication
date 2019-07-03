@@ -37,13 +37,10 @@ namespace Library_Managment.Windows
             {
                 this.dgToday.Items.Add(returnDashboardList);
             }
-           
-
             foreach (ReturnDashboardList returnDashboardList in returnDashboardListsTomorrow)
             {
                 this.dgTomorrow.Items.Add(returnDashboardList);
             }
-
             foreach (ReturnDashboardList returnDashboardList in returnDashboardListsDelay)
             {
                 this.dgDelay.Items.Add(returnDashboardList);
@@ -64,8 +61,6 @@ namespace Library_Managment.Windows
 
             NewOrder newOrder = new NewOrder();
             newOrder.ShowDialog();
-            //DataRelation data = new DataRelation();
-            //MessageBox.Show(data.FillReturnToday().ToString());
         }
 
         private void BtnReturnBook_Click(object sender, RoutedEventArgs e)

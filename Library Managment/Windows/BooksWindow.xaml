@@ -32,8 +32,6 @@
         <TextBox x:Name="tbAuthorName" HorizontalAlignment="Left" Height="26" Margin="495,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
         <Label x:Name="lblBookCount" Content="Book Count" HorizontalAlignment="Left" Margin="784,11,0,0" VerticalAlignment="Top" Width="81"/>
         <TextBox x:Name="tbBookCount" HorizontalAlignment="Left" Height="26" Margin="784,36,0,0"  PreviewTextInput="NumberValidationTextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="81"/>
-        <Label x:Name="lblPosition" Content="Position" HorizontalAlignment="Left" Margin="885,9,0,0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="tbPosition" HorizontalAlignment="Left" Height="26" Margin="885,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81"/>
         <Label x:Name="lblPrice" Content="Price" HorizontalAlignment="Left" Margin="214,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.5"/>
         <TextBox x:Name="tbPrice" HorizontalAlignment="Left" Height="26" Margin="214,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
 

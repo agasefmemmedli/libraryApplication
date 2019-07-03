@@ -36,9 +36,9 @@ namespace Library_Managment.Migrations
                         Price = c.Decimal(nullable: false, storeType: "money"),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Administrators", t => t.AdministratorId, cascadeDelete: true)
-                .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: true)
-                .ForeignKey("dbo.Customers", t => t.CustomerId, cascadeDelete: true)
+                .ForeignKey("dbo.Administrators", t => t.AdministratorId, cascadeDelete: false)
+                .ForeignKey("dbo.Books", t => t.BookId, cascadeDelete: false)
+                .ForeignKey("dbo.Customers", t => t.CustomerId, cascadeDelete: false)
                 .Index(t => t.AdministratorId)
                 .Index(t => t.CustomerId)
                 .Index(t => t.BookId);

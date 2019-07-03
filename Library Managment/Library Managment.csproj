@@ -68,6 +68,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\201907031924573_CreateNewTableInDatabase.cs" />
+    <Compile Include="Migrations\201907031924573_CreateNewTableInDatabase.Designer.cs">
+      <DependentUpon>201907031924573_CreateNewTableInDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Windows\AdministratorsWindow.xaml.cs">
       <DependentUpon>AdministratorsWindow.xaml</DependentUpon>
     </Compile>
@@ -91,9 +96,6 @@
     </Compile>
     <Compile Include="Windows\SelectCustomerWindow.xaml.cs">
       <DependentUpon>SelectCustomerWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\SelectedBookPropertyWindow.xaml.cs">
-      <DependentUpon>SelectedBookPropertyWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Windows\AdministratorsWindow.xaml">
       <SubType>Designer</SubType>
@@ -158,10 +160,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\SelectedBookPropertyWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -179,6 +177,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201906290900157_CreateDatabase.resx">
       <DependentUpon>201906290900157_CreateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907031924573_CreateNewTableInDatabase.resx">
+      <DependentUpon>201907031924573_CreateNewTableInDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

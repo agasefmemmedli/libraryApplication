@@ -24,10 +24,7 @@ namespace Library_Managment.Models
         [StringLength(50)]
         public string Address { get; set; }
 
-        [StringLength(50)]
-        public string Gender { get; set; }
-
-        public List<RentedBook> RentedBooks { get; set; }
+        public List<Order> Orders { get; set; }
 
     }
 }

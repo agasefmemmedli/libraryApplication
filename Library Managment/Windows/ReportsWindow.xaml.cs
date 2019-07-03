@@ -32,16 +32,18 @@ namespace Library_Managment.Windows
 
             dpTo.SelectedDate = DateTime.Today;
             dpTo.DisplayDate = DateTime.Today;
+          
+
         }
 
         public void FillDG()
         {
-            List<RentedBookList> rentedBookLists = dr.FillReportsList();
+            //List<RentedBookList> rentedBookLists = dr.FillReportsList();
 
-            foreach (RentedBookList rentedBookList in rentedBookLists)
-            {
-                this.dgReports.Items.Add(rentedBookList);
-            }
+            //foreach (RentedBookList rentedBookList in rentedBookLists)
+            //{
+            //    this.dgReports.Items.Add(rentedBookList);
+            //}
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)

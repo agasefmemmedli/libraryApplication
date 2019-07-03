@@ -24,6 +24,7 @@ namespace Library_Managment.Windows
         Administrator ad;
         public AdministratorsWindow()
         {
+            ad = new Administrator();
             dr = new DataRelation();
             InitializeComponent();
             FillDG();
@@ -47,6 +48,10 @@ namespace Library_Managment.Windows
         {
             if (ad != null)
             {
+                btnAddAdministrator.Visibility = Visibility.Hidden;
+                btnUpdateAdministrator.Visibility = Visibility.Visible;
+                btnDeleteAdministrator.Visibility = Visibility.Visible;
+
                 ad = dgAdministrator.SelectedItem as Administrator;
 
                 tbAdministratorFullName.Text = ad.FullName.ToString();
@@ -54,7 +59,6 @@ namespace Library_Managment.Windows
                 tbAdministratorPassword.Password = ad.Password.ToString();
                 tbPhoneNumber.Text = ad.PhoneNumber.ToString();
                 tbAddress.Text = ad.Address.ToString();
-                cbGender.Text = ad.Gender.ToString();
             }
         }
 
@@ -66,7 +70,6 @@ namespace Library_Managment.Windows
             tbAdministratorPassword.Password = string.Empty;
             tbPhoneNumber.Text = string.Empty;
             tbAddress.Text = string.Empty;
-            cbGender.Text = string.Empty;
         }
 
         private void ResetFromLabels()
@@ -76,7 +79,6 @@ namespace Library_Managment.Windows
             lblAdministratorPassword.Foreground = Brushes.Black;
             lblAddress.Foreground = Brushes.Black;
             lblPhoneNumber.Foreground = Brushes.Black;
-            lblGender.Foreground = Brushes.Black;
         }
 
         private bool Validation()
@@ -107,11 +109,7 @@ namespace Library_Managment.Windows
                 lblPhoneNumber.Foreground = Brushes.Red;
                 return false;
             }
-            if (string.IsNullOrEmpty(cbGender.Text))
-            {
-                lblGender.Foreground = Brushes.Red;
-                return false;
-            }
+            
             return true;
         }
         #endregion
@@ -131,11 +129,11 @@ namespace Library_Managment.Windows
                CreateDate=DateTime.Today,
                Password= tbAdministratorPassword.Password ,
                PhoneNumber= tbPhoneNumber.Text ,
-               Address= tbAddress.Text ,
-               Gender= cbGender.Text 
+               Address= tbAddress.Text 
             };
             dr.AddAdministrator(administrator);
             ResetTextBox();
+            FillDG();
         }
         private void BtnUpdateAdministrator_Click(object sender, RoutedEventArgs e)
         {
@@ -143,6 +141,9 @@ namespace Library_Managment.Windows
             {
                 return;
             }
+            btnAddAdministrator.Visibility = Visibility.Visible;
+            btnUpdateAdministrator.Visibility = Visibility.Hidden;
+            btnDeleteAdministrator.Visibility = Visibility.Hidden;
 
             Administrator administrator = new Administrator
             {
@@ -152,11 +153,11 @@ namespace Library_Managment.Windows
                 Password = tbAdministratorPassword.Password,
                 CreateDate = DateTime.Today,
                 PhoneNumber = tbPhoneNumber.Text,
-                Address = tbAddress.Text,
-                Gender = cbGender.Text
+                Address = tbAddress.Text
             };
             dr.UpdateAdministrator(administrator);
             ResetTextBox();
+            FillDG();
         }
         private void BtnDeleteAdministrator_Click(object sender, RoutedEventArgs e)
         {
@@ -164,6 +165,10 @@ namespace Library_Managment.Windows
             {
                 return;
             }
+            btnAddAdministrator.Visibility = Visibility.Visible;
+            btnUpdateAdministrator.Visibility = Visibility.Hidden;
+            btnDeleteAdministrator.Visibility = Visibility.Hidden;
+
 
             if (MessageBox.Show("Do you want to delete this Administrator?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
             {
@@ -173,6 +178,7 @@ namespace Library_Managment.Windows
 
             }
             ResetTextBox();
+            FillDG();
         }
         #endregion
     }

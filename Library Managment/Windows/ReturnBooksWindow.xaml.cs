@@ -27,7 +27,13 @@ namespace Library_Managment.Windows
         private void BtnSelectCustomer_Click(object sender, RoutedEventArgs e)
         {
             SelectCustomerWindow selectCustomerWindow = new SelectCustomerWindow();
+            selectCustomerWindow.OnSelected += new EventHandler(CustomerSelected);
             selectCustomerWindow.ShowDialog();
+        }
+
+        private void CustomerSelected(object sender,EventArgs e)
+        {
+
         }
 
         private void BtnSaveOrder_Click(object sender, RoutedEventArgs e)

@@ -52,7 +52,6 @@ namespace Library_Managment.Windows
                 tbCustomerFullName.Text = cr.FullName.ToString();
                 tbPhoneNumber.Text = cr.PhoneNumber.ToString();
                 tbAddress.Text = cr.Address.ToString();
-                cbGender.Text = cr.Gender.ToString();
             }
         }
 
@@ -62,7 +61,6 @@ namespace Library_Managment.Windows
             tbCustomerFullName.Text = string.Empty;
             tbPhoneNumber.Text = string.Empty;
             tbAddress.Text = string.Empty;
-            cbGender.Text = string.Empty;
         }
 
         private void ResetFromLabels()
@@ -70,7 +68,6 @@ namespace Library_Managment.Windows
             lblCustomerFullName.Foreground = Brushes.Black;
             lblPhoneNumber.Foreground = Brushes.Black;
             lblAddress.Foreground = Brushes.Black;
-            lblGender.Foreground = Brushes.Black;
         }
 
         private bool Validation()
@@ -91,11 +88,6 @@ namespace Library_Managment.Windows
                 lblAddress.Foreground = Brushes.Red;
                 return false;
             }
-            if (string.IsNullOrEmpty(cbGender.Text))
-            {
-                lblGender.Foreground = Brushes.Red;
-                return false;
-            }
             return true;
         }
         #endregion
@@ -113,8 +105,7 @@ namespace Library_Managment.Windows
                 FullName = tbCustomerFullName.Text,
                 CreateDate = DateTime.Today,
                 PhoneNumber = tbPhoneNumber.Text,
-                Address = tbAddress.Text,
-                Gender = cbGender.Text
+                Address = tbAddress.Text
             };
             dr.AddCustomer(customer);
         }
@@ -131,8 +122,7 @@ namespace Library_Managment.Windows
                 FullName = tbCustomerFullName.Text,
                 CreateDate = DateTime.Today,
                 PhoneNumber = tbPhoneNumber.Text,
-                Address = tbAddress.Text,
-                Gender = cbGender.Text
+                Address = tbAddress.Text
             };
             dr.UpdateCustomer(customer);
         }

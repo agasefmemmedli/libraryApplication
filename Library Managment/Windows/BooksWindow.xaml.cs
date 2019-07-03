@@ -24,9 +24,10 @@ namespace Library_Managment.Windows
     {
         DAL.AppContext context = new DAL.AppContext();
         DataRelation dr;
-        Book bk = new Book();
+        Book bk;
         public BooksWindow()
         {
+            bk = new Book();
             dr = new DataRelation();
             InitializeComponent();
             FillDG();
@@ -65,7 +66,6 @@ namespace Library_Managment.Windows
                 tbBookName.Text = bk.Name.ToString();
                 tbAuthorName.Text = bk.Author.ToString();
                 tbBookCount.Text = bk.Count.ToString();
-                tbPosition.Text = bk.Position.ToString();
                 tbPrice.Text = bk.Price.ToString();
             }
             
@@ -78,7 +78,6 @@ namespace Library_Managment.Windows
             tbBookName.Text = string.Empty;
             tbAuthorName.Text = string.Empty;
             tbBookCount.Text = string.Empty;
-            tbPosition.Text = string.Empty;
             tbPrice.Text = string.Empty;
            
         }
@@ -88,7 +87,6 @@ namespace Library_Managment.Windows
             tbBookName.Foreground = Brushes.Black;
             tbAuthorName.Foreground = Brushes.Black;
             tbBookCount.Foreground = Brushes.Black;
-            tbPosition.Foreground = Brushes.Black;
             tbPrice.Foreground = Brushes.Black;
         }
 
@@ -110,11 +108,7 @@ namespace Library_Managment.Windows
                 lblBookCount.Foreground = Brushes.Red;
                 return false;
             }
-            if (string.IsNullOrEmpty(tbPosition.Text))
-            {
-                lblPosition.Foreground = Brushes.Red;
-                return false;
-            }
+            
             if (string.IsNullOrEmpty(tbPrice.Text))
             {
                 lblPrice.Foreground = Brushes.Red;
@@ -136,7 +130,6 @@ namespace Library_Managment.Windows
                Name= tbBookName.Text ,
                Author= tbAuthorName.Text,
                Count=Convert.ToInt32(tbBookCount.Text),
-               Position= tbPosition.Text ,
                Price=Convert.ToDecimal(tbPrice.Text)
             };
             dr.AddBooks(bk);
@@ -153,7 +146,6 @@ namespace Library_Managment.Windows
                 Name = tbBookName.Text,
                 Author = tbAuthorName.Text,
                 Count = Convert.ToInt32(tbBookCount.Text),
-                Position = tbPosition.Text,
                 Price = Convert.ToDecimal(tbPrice.Text)
             };
             dr.UpdateBooks(newBook);
