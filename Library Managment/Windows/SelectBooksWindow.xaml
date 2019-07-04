@@ -16,26 +16,25 @@
             <Button x:Name="btnSelectBooks" Content="Select This Books" HorizontalAlignment="Left" Margin="31,426,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="150" Height="38" BorderBrush="#FFAEEA00" Click="BtnSelectBooks_Click"/>
             <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="31,487,0,25" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Width="150" Height="38" BorderBrush="#FFAEEA00" Click="BtnClose_Click" />
         </Grid>
-        <TextBox x:Name="tbSearchBooks" HorizontalAlignment="Left" Margin="179,75,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="506" Height="26" Grid.Column="1"/>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Margin="179,75,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="506" Height="26" Grid.Column="1"/>
         <Label x:Name="lblCustomerSearch" Content="Books Search" HorizontalAlignment="Left" Margin="94,75,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <DataGrid x:Name="dgBooks" SelectedItem="{Binding Book}"  SelectionChanged="DgBooks_SelectionChanged" HorizontalAlignment="Left" Margin="94,120,0,9.8" Width="690" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Background="#FF5575E4" Grid.Column="1">
+        <DataGrid x:Name="dgBooks" SelectedItem="{Binding Book}"  SelectionChanged="DgBooks_SelectionChanged" HorizontalAlignment="Left" Margin="94,106,0,9.8" Width="690" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Background="#FFC5D2FF" Grid.Column="1">
             <DataGrid.Columns>
-                <DataGridTextColumn IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
-                <DataGridTextColumn IsReadOnly="True" Header="Name"  Binding="{Binding Name}" />
-                <DataGridTextColumn IsReadOnly="True" Header="Author" Binding="{Binding Author}" />
-                <DataGridTextColumn IsReadOnly="True" Header="Count" Binding="{Binding Count}" />
-                <DataGridTextColumn IsReadOnly="True" Header="Position" Binding="{Binding Position}" />
-                <DataGridTextColumn IsReadOnly="True" Header="Price" Binding="{Binding Price}" />
+                <DataGridTextColumn IsReadOnly="True" Width="*" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
+                <DataGridTextColumn IsReadOnly="True" Width="*" Header="Name"  Binding="{Binding Name}" />
+                <DataGridTextColumn IsReadOnly="True" Width="150" Header="Author" Binding="{Binding Author}" />
+                <DataGridTextColumn IsReadOnly="True" Width="100" Header="Count" Binding="{Binding Count}" />
+                <DataGridTextColumn IsReadOnly="True" Width="100" Header="Price" Binding="{Binding Price}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnSearchBooks" Content="Search" HorizontalAlignment="Left" Margin="699,75,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="85" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="-0.185,0.469" Grid.Column="1"/>
+        <Button x:Name="btnSearchBooks" Content="Search" HorizontalAlignment="Left" Margin="699,75,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="85" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="-0.185,0.469" Grid.Column="1" Click="BtnSearchBooks_Click"/>
         <TextBox x:Name="tbBookName" HorizontalAlignment="Center" Height="26" Margin="94,36,429.6,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="270" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <Label x:Name="lblSelectedBookName" Content="Selected Book Name" HorizontalAlignment="Left" Margin="158,10,0,0" VerticalAlignment="Top" Width="147" HorizontalContentAlignment="Center" Grid.Column="1"/>
+        <Label x:Name="lblSelectedBookName" Content="Selected Book Name" HorizontalAlignment="Left" Margin="94,10,0,0" VerticalAlignment="Top" Width="121" HorizontalContentAlignment="Center" Grid.Column="1"/>
         <ComboBox x:Name="cmbBookCount" HorizontalAlignment="Left" Margin="391,36,0,0" VerticalAlignment="Top" Width="120" Height="25" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <Label x:Name="lblSelectBookCount" Content="Select Book Count" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="110" Margin="399,10,0,0" Grid.Column="1"/>
-        <Label x:Name="lblSelectReturnDate" Content="Select Return Date" HorizontalAlignment="Left" Margin="529,11,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <DatePicker x:Name="dpReturnDate" HorizontalAlignment="Left" SelectedDateChanged="DpReturnDate_SelectedDateChanged" Margin="538,37,0,0" VerticalAlignment="Top"  SelectedDateFormat="Short" Width="92" HorizontalContentAlignment="Stretch" Grid.Column="1"/>
-        <Label x:Name="lblBookPrice" Content="Book Price" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="110" Margin="660,10,0,0" HorizontalContentAlignment="Center" Grid.Column="1"/>
+        <Label x:Name="lblSelectBookCount" Content="Select Book Count" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="110" Margin="387,10,0,0" Grid.Column="1"/>
+        <Label x:Name="lblSelectReturnDate" Content="Select Return Date" HorizontalAlignment="Left" Margin="538,10,0,0" VerticalAlignment="Top" Width="110" HorizontalContentAlignment="Center" Grid.Column="1"/>
+        <DatePicker x:Name="dpReturnDate" HorizontalAlignment="Left" SelectedDateChanged="DpReturnDate_SelectedDateChanged" Margin="545,37,0,0" VerticalAlignment="Top"  SelectedDateFormat="Short" Width="92" HorizontalContentAlignment="Stretch" Grid.Column="1"/>
+        <Label x:Name="lblBookPrice" Content="Book Price" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="71" Margin="660,9,0,0" HorizontalContentAlignment="Center" Grid.Column="1"/>
         <Label x:Name="lblBookPriceCount" Content="100.55" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="110" Margin="660,35,0,0" HorizontalContentAlignment="Center" Grid.Column="1"/>
 
 

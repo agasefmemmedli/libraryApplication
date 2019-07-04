@@ -165,21 +165,31 @@ namespace Library_Managment.Windows
             {
                 return;
             }
-            btnAddAdministrator.Visibility = Visibility.Visible;
-            btnUpdateAdministrator.Visibility = Visibility.Hidden;
-            btnDeleteAdministrator.Visibility = Visibility.Hidden;
+            
 
 
             if (MessageBox.Show("Do you want to delete this Administrator?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
             {
 
                 dr.DeleteAdministrator(ad.Id);
+                ResetTextBox();
+                btnAddAdministrator.Visibility = Visibility.Visible;
+                btnUpdateAdministrator.Visibility = Visibility.Hidden;
+                btnDeleteAdministrator.Visibility = Visibility.Hidden;
                 FillDG();
-
             }
-            ResetTextBox();
-            FillDG();
+            
         }
         #endregion
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            this.dgAdministrator.Items.Clear();
+            List<Administrator> administrators = dr.SearchAdministrators(tbSearch.Text);
+            foreach (Administrator administrator in administrators)
+            {
+                this.dgAdministrator.Items.Add(administrator);
+            }
+        }
     }
 }

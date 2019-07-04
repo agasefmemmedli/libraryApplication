@@ -125,6 +125,7 @@ namespace Library_Managment.Windows
             {
                 return;
             }
+            
             Book book = new Book
             { 
                Name= tbBookName.Text ,
@@ -133,6 +134,8 @@ namespace Library_Managment.Windows
                Price=Convert.ToDecimal(tbPrice.Text)
             };
             dr.AddBooks(bk);
+            FillDG();
+            ResetTextBox();
         }
         private void BtnUpdateBook_Click(object sender, RoutedEventArgs e)
         {
@@ -149,6 +152,12 @@ namespace Library_Managment.Windows
                 Price = Convert.ToDecimal(tbPrice.Text)
             };
             dr.UpdateBooks(newBook);
+            btnAddBook.Visibility = Visibility.Visible;
+            btnUpdateBook.Visibility = Visibility.Hidden;
+            btnDeleteBook.Visibility = Visibility.Hidden;
+            ResetTextBox();
+            FillDG();
+            
         }
         private void BtnDeleteBook_Click(object sender, RoutedEventArgs e)
         {
@@ -160,12 +169,28 @@ namespace Library_Managment.Windows
             {
                 
                 dr.DeleteBooks(bk.Id);
+                btnAddBook.Visibility = Visibility.Visible;
+                btnUpdateBook.Visibility = Visibility.Hidden;
+                btnDeleteBook.Visibility = Visibility.Hidden;
                 FillDG();
+                ResetTextBox();
 
             }
             
-            
+
+
         }
         #endregion
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            
+            this.dgBooks.Items.Clear();
+            List<Book> books = dr.SearchBooks(tbSearch.Text);
+            foreach (Book book in books)
+            {
+                this.dgBooks.Items.Add(book);
+            }
+        }
     }
 }

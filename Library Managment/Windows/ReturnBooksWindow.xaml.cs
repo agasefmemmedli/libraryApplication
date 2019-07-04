@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Library_Managment.Models;
+using Library_Managment.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +21,11 @@ namespace Library_Managment.Windows
     /// </summary>
     public partial class ReturnBooksWindow : Window
     {
+        DataRelation dr;
+        Customer customer;
         public ReturnBooksWindow()
         {
+            dr = new DataRelation();
             InitializeComponent();
         }
 
@@ -33,6 +38,15 @@ namespace Library_Managment.Windows
 
         private void CustomerSelected(object sender,EventArgs e)
         {
+            customer = sender as Customer;
+            tbCustomerName.Text = customer.FullName;
+            List<RentedBook> rentedBooks= dr.SearchRentedBook(customer.Id);
+            this.dgCustomerTackedBook.Items.Clear();
+            foreach (RentedBook book in rentedBooks)
+            {
+                this.dgCustomerTackedBook.Items.Add(book);
+                //book.Book.Name
+            }
 
         }
 

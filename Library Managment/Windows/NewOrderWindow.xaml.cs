@@ -60,34 +60,61 @@ namespace Library_Managment.Windows
             SelectedBook sBook = sender as SelectedBook;
             selectedBooks.Add(sBook);
             this.dgCustomerSelectedBook.Items.Clear();
+            decimal price = 0;
+            int bCount = 0;
             foreach (SelectedBook book in selectedBooks)
             {
                 this.dgCustomerSelectedBook.Items.Add(book);
+                price += book.CalcPrice;
+                bCount += book.BooksCount;
             }
+            lblBookCount.Content = bCount;
+            lblPrice.Content = price;
         }
 
         private void BtnSaveOrder_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Do you want to add this order?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+            if (customer != null)
             {
-                Order order = new Order();
-                order.CustomerId= customer.Id;
-                order.TakedDate = DateTime.Today;
-                dr.AddOrder(order);
-                RentedBook rentedBook = new RentedBook();
-                foreach (SelectedBook book in selectedBooks)
+                if (selectedBooks.Any())
                 {
-                    for (int a = 0; a < book.BooksCount; a++)
+                    if (MessageBox.Show("Do you want to add this order?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
                     {
-                        rentedBook.BookId = book.Id;
-                        rentedBook.OrderId = order.Id;
-                        rentedBook.ReturnDate = book.ReturnDate;
-                        rentedBook.Price = book.CalcPrice / Convert.ToDecimal(book.BooksCount);
-                        dr.AddRentBook(rentedBook);
+                        Order order = new Order();
+                        order.CustomerId = customer.Id;
+                        order.TakedDate = DateTime.Today;
+                        dr.AddOrder(order);
+                        RentedBook rentedBook = new RentedBook();
+                        foreach (SelectedBook book in selectedBooks)
+                        {
+                            for (int a = 0; a < book.BooksCount; a++)
+                            {
+                                rentedBook.BookId = book.Id;
+                                rentedBook.OrderId = order.Id;
+                                rentedBook.ReturnDate = book.ReturnDate;
+                                rentedBook.Price = book.CalcPrice / Convert.ToDecimal(book.BooksCount);
+                                dr.RentBook(book.Id,book.BooksCount);
+                                dr.AddRentBook(rentedBook);
+                            }
+                        }
                     }
                 }
-                this.Close();
+                else
+                {
+                    if (MessageBox.Show("Do you want to close window?", "You note selected Books", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+                    {
+                        this.Close();
+                    }
+                }
             }
+            else
+            {
+                if (MessageBox.Show("Do you want to close window?", "You note selected Customer", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+            
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)

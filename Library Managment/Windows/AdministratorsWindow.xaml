@@ -7,15 +7,19 @@
         mc:Ignorable="d"
         Title="Administrators" Icon="..\Images\ligicon.ico" Height="550" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="755*"/>
+            <ColumnDefinition Width="239*"/>
+        </Grid.ColumnDefinitions>
         <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF5426A6">
             <Button x:Name="btnAddAdministrator" Content="Add Administrator" HorizontalAlignment="Left" Margin="20,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38" Click="BtnAddAdministrator_Click"  />
             <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="20,489,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38" BorderBrush="#FFAEEA00" Click="BtnClose_Click" />
             <Button x:Name="btnUpdateAdministrator" Visibility="Hidden"  Content="Update Administrator" HorizontalAlignment="Left" Margin="20,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38" Click="BtnUpdateAdministrator_Click"  />
             <Button x:Name="btnDeleteAdministrator" Visibility="Hidden" Content="Delete Administrator" HorizontalAlignment="Left" Margin="20,134,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="171" Height="38" Click="BtnDeleteAdministrator_Click" />
         </Grid>
-        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="26" Margin="214,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="646"/>
-        <Label x:Name="lblSearch" Content="Search Administrator" HorizontalAlignment="Left" Margin="214,118,0,0" Height="26" VerticalAlignment="Top" Width="347"/>
-        <DataGrid x:Name="dgAdministrator" SelectedItem="{Binding Administrator}"  SelectionChanged="DgAdministrator_SelectionChanged" HorizontalAlignment="Left" Margin="214,185,0,5" Width="765" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Background="#FFC5D2FF">
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="26" Margin="345,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="533" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblSearch" Content="Search Administrator" HorizontalAlignment="Left" Margin="214,116,0,0" Height="26" VerticalAlignment="Top" Width="131"/>
+        <DataGrid x:Name="dgAdministrator" SelectedItem="{Binding Administrator}"  SelectionChanged="DgAdministrator_SelectionChanged" HorizontalAlignment="Left" Margin="214,147,0,4.8" Width="765" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Background="#FFC5D2FF" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
                 <DataGridTextColumn Width="200"  IsReadOnly="True" Header="Full Name"  Binding="{Binding FullName}" />
@@ -26,17 +30,17 @@
                 <DataGridTextColumn Width="100" IsReadOnly="True" Header="Gender" Binding="{Binding Gender}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="865,144,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="95" Height="26" BorderBrush="#FFAEEA00"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="129,116,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="95" Height="26" BorderBrush="#FFAEEA00" Click="BtnSearch_Click" Grid.Column="1"/>
         <Label x:Name="lblAdministratorFullName" Content="Administrator Full Name" HorizontalAlignment="Left" Margin="214,3,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbAdministratorFullName" MaxLength="50" HorizontalAlignment="Left" Height="26" Margin="214,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+        <TextBox x:Name="tbAdministratorFullName" MaxLength="50" HorizontalAlignment="Left" Height="26" Margin="214,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="336"/>
         <Label x:Name="lblPhoneNumber" Content="Phone Number" HorizontalAlignment="Left" Margin="214,59,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPhoneNumber" MaxLength="50" HorizontalAlignment="Left" Height="26" Margin="214,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="tbPhoneNumber" MaxLength="15" HorizontalAlignment="Left" Height="26" Margin="214,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213"/>
         <Label x:Name="lblAddress" Content="Adress" HorizontalAlignment="Left" Margin="432,58,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" MaxLength="50" Height="26" Margin="432,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="488"/>
-        <Label x:Name="lblAdministratorLogin" Content="Administrator Login" HorizontalAlignment="Left" Margin="502,3,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbAdministratorLogin" MaxLength="50" HorizontalAlignment="Left" Height="26" Margin="502,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <Label x:Name="lblAdministratorPassword" Content="Administrator Password" HorizontalAlignment="Left" Margin="720,3,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="tbAdministratorPassword" MaxLength="50" HorizontalAlignment="Left" Height="26" Margin="720,29,0,0" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="tbAddress" HorizontalAlignment="Left" MaxLength="50" Height="26" Margin="432,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="547" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblAdministratorLogin" Content="Administrator Login" HorizontalAlignment="Left" Margin="555,-2,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbAdministratorLogin" MaxLength="20" HorizontalAlignment="Left" Height="26" Margin="555,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <Label x:Name="lblAdministratorPassword" Content="Administrator Password" HorizontalAlignment="Left" Margin="5,3,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <PasswordBox x:Name="tbAdministratorPassword" MaxLength="20" HorizontalAlignment="Left" Height="26" Margin="4.6,29,0,0" VerticalAlignment="Top" Width="219" Grid.Column="1"/>
 
 
     </Grid>

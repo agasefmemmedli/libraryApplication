@@ -10,30 +10,29 @@
         <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF5426A6">
             <Button x:Name="btnAddBook" Content="Add Book" HorizontalAlignment="Left" Margin="38,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnAddBook_Click"  />
             <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="38,489,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" BorderBrush="#FFAEEA00" Click="BtnClose_Click" />
-            <Button x:Name="btnUpdateBook" Visibility="Hidden" Content="Update Book" HorizontalAlignment="Left" Margin="38,123,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnUpdateBook_Click"  />
-            <Button x:Name="btnDeleteBook" Visibility="Hidden" Content="Delete Book" HorizontalAlignment="Left" Margin="38,166,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnDeleteBook_Click" />
+            <Button x:Name="btnUpdateBook" Visibility="Hidden" Content="Update Book" HorizontalAlignment="Left" Margin="38,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnUpdateBook_Click"  />
+            <Button x:Name="btnDeleteBook" Visibility="Hidden" Content="Delete Book" HorizontalAlignment="Left" Margin="38,123,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnDeleteBook_Click" />
         </Grid>
-        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="26" Margin="495,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="355"/>
-        <Label x:Name="lblSearchBook" Content="Search Book" HorizontalAlignment="Left" Margin="495,67,0,0" VerticalAlignment="Top" Width="113"/>
-        <DataGrid x:Name="dgBooks" SelectedItem="{Binding Book}"  SelectionChanged="DgBooks_SelectionChanged"  AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Left" Margin="214,135,0,5" Width="765" Background="#FFC5D2FF">
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="26" Margin="301,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="549"/>
+        <Label x:Name="lblSearchBook" Content="Search Book" HorizontalAlignment="Left" Margin="214,75,0,0" VerticalAlignment="Top" Width="82"/>
+        <DataGrid x:Name="dgBooks" SelectedItem="{Binding Book}"  SelectionChanged="DgBooks_SelectionChanged"  AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Left" Margin="214,107,0,4.8" Width="765" Background="#FFC5D2FF">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
                 <DataGridTextColumn Width="300" IsReadOnly="True" Header="Name"  Binding="{Binding Name}" />
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="Author" Binding="{Binding Author}" />
                 <DataGridTextColumn Width="100" IsReadOnly="True" Header="Count" Binding="{Binding Count}" />
-                <DataGridTextColumn Width="100" IsReadOnly="True" Header="Position" Binding="{Binding Position}" />
                 <DataGridTextColumn Width="100" IsReadOnly="True" Header="Price" Binding="{Binding Price}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="867,94,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="99" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="0.354,0.423"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="867,75,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="99" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="0.354,0.423" Click="BtnSearch_Click"/>
         <Label x:Name="lblBookName" Content="Book Name" HorizontalAlignment="Left" Margin="214,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbBookName" HorizontalAlignment="Left" Height="26" Margin="214,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
         <Label x:Name="lblAuthorName" Content="Author Name" HorizontalAlignment="Left" Margin="495,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbAuthorName" HorizontalAlignment="Left" Height="26" Margin="495,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
-        <Label x:Name="lblBookCount" Content="Book Count" HorizontalAlignment="Left" Margin="784,11,0,0" VerticalAlignment="Top" Width="81"/>
-        <TextBox x:Name="tbBookCount" HorizontalAlignment="Left" Height="26" Margin="784,36,0,0"  PreviewTextInput="NumberValidationTextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="81"/>
-        <Label x:Name="lblPrice" Content="Price" HorizontalAlignment="Left" Margin="214,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.5"/>
-        <TextBox x:Name="tbPrice" HorizontalAlignment="Left" Height="26" Margin="214,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+        <TextBox x:Name="tbAuthorName" HorizontalAlignment="Left" Height="26" Margin="495,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Label x:Name="lblBookCount" Content="Book Count" HorizontalAlignment="Left" Margin="750,8,0,0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="tbBookCount" HorizontalAlignment="Left" Height="26" Margin="750,36,0,0"  PreviewTextInput="NumberValidationTextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+        <Label x:Name="lblPrice" Content="Price" HorizontalAlignment="Left" Margin="850,8,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.5"/>
+        <TextBox x:Name="tbPrice" HorizontalAlignment="Left" Height="26" Margin="850,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116"/>
 
 
     </Grid>

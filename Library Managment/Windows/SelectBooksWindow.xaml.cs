@@ -98,5 +98,15 @@ namespace Library_Managment.Windows
             count = Convert.ToDecimal(cmbBookCount.SelectedItem.ToString());
             CalcPrice();
         }
+
+        private void BtnSearchBooks_Click(object sender, RoutedEventArgs e)
+        {
+            this.dgBooks.Items.Clear();
+            List<Book> books = dr.SearchBooks(tbSearch.Text);
+            foreach (Book book in books)
+            {
+                this.dgBooks.Items.Add(book);
+            }
+        }
     }
 }

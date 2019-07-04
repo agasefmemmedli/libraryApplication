@@ -37,25 +37,25 @@ namespace Library_Managment.Utilities
         }
 
 
-        //public List<RentedBookList> FillReportsList()
-        //{
-        //    List<RentedBookList> rentedBooks = _context.RentedBooks.Select(rb=> new RentedBookList {
-        //        Id =rb.Id,
-        //        cus=rb.Customer.FullName,
-        //        BookName=rb.Book.Name,
-        //        TakingDate=rb.TakingDate,
-        //        ReturnDate=rb.ReturnDate,
-        //        InfactDate=rb.InfactDate,
-        //        Price=rb.Price
-        //    }).ToList();
+        public List<RentedBookList> FillReportsList()
+        {
+            List<RentedBookList> rentedBooks = _context.RentedBooks.Where(r=>r.InfactDate!=null).Select(rb => new RentedBookList
+            {
+                Id = rb.Id,
+                CustomerFullName = rb.Order.Customer.FullName,
+                BookName = rb.Book.Name,
+                TakingDate = rb.Order.TakedDate,
+                ReturnDate = rb.ReturnDate,
+                InfactDate = rb.InfactDate,
+                Price = rb.Price
+            }).ToList();
 
-        //    return rentedBooks;
-        //}
+            return rentedBooks;
+        }
         public class RentedBookList
         {
             public int Id { get; set; }
 
-            public string AdministratorFullName { get; set; }
             public string CustomerFullName { get; set; }
             public string BookName { get; set; }
             public DateTime TakingDate { get; set; }
@@ -79,7 +79,7 @@ namespace Library_Managment.Utilities
         {
             if (date >= DateTime.Today)
             {
-                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate == date).GroupBy(r => r.OrderId).Select(rtb => new ReturnDashboardList
+                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate == date && r.InfactDate==null).GroupBy(r => r.OrderId).Select(rtb => new ReturnDashboardList
                 {
                     Id = rtb.Key,
                     BooksCount = rtb.Count(),
@@ -90,7 +90,7 @@ namespace Library_Managment.Utilities
             }
             else
             {
-                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate <= date).GroupBy(r => r.OrderId).Select(rtb => new ReturnDashboardList
+                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate <= date && r.InfactDate == null).GroupBy(r => r.OrderId).Select(rtb => new ReturnDashboardList
                 {
                     Id = rtb.Key,
                     BooksCount = rtb.Count(),
@@ -116,15 +116,14 @@ namespace Library_Managment.Utilities
 
         public void UpdateBooks(Book bk)
         {
-            //Book book = _context.Books.Find(bk.Id);
+            Book book = _context.Books.Find(bk.Id);
 
-            //book.Name = bk.Name;
-            //book.Author = bk.Author;
-            //book.Count = bk.Count;
-            //book.Position = bk.Position;
-            //book.Price = bk.Price;
+            book.Name = bk.Name;
+            book.Author = bk.Author;
+            book.Count = bk.Count;
+            book.Price = bk.Price;
 
-            //_context.SaveChanges();
+            _context.SaveChanges();
         }
         public void UpdateCustomer(Customer cs)
         {
@@ -210,6 +209,46 @@ namespace Library_Managment.Utilities
         }
 
         #endregion
+
+        #region Search
+        public List<Book> SearchBooks(String name)
+        {
+            List<Book> books= _context.Books.Where(b => b.Name.Contains(name)).ToList();
+            return books;
+        }
+
+        public List<Administrator> SearchAdministrators(String name)
+        {
+            List<Administrator> administrators = _context.Administrators.Where(a => a.FullName.Contains(name)).ToList();
+            return administrators;
+        }
+
+        public List<Customer> SearchCustomers(String name)
+        {
+            List<Customer> customers = _context.Customers.Where(c => c.FullName.Contains(name)).ToList();
+            return customers;
+        }
+
+        public List<RentedBook> SearchRentedBook(int id)
+        {
+            List<RentedBook> rentedBooks = _context.RentedBooks.Where(r => r.Order.CustomerId==id&&r.InfactDate==null).ToList();
+            return rentedBooks;
+        }
+
+        #endregion
+
+        public void RentBook(int id, int count)
+        {
+            Book book = _context.Books.Find(id);
+            book.Count -= count;
+            _context.SaveChanges();
+        }
+        public void ReturnBook(int id, int count)
+        {
+            Book book = _context.Books.Find(id);
+            book.Count += count;
+            _context.SaveChanges();
+        }
     }
 
 

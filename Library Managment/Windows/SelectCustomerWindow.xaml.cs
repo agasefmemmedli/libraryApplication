@@ -58,5 +58,15 @@ namespace Library_Managment.Windows
         {
             this.Close();
         }
+
+        private void BtnSaveOrder_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            this.dgCustomers.Items.Clear();
+            List<Customer> customers = dr.SearchCustomers(tbSearch.Text);
+            foreach (Customer customer in customers)
+            {
+                this.dgCustomers.Items.Add(customer);
+            }
+        }
     }
 }

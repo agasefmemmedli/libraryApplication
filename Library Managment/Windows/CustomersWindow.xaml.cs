@@ -108,6 +108,8 @@ namespace Library_Managment.Windows
                 Address = tbAddress.Text
             };
             dr.AddCustomer(customer);
+            FillDG();
+            ResetTextBox();
         }
         private void BtnUpdateCustomer_Click(object sender, RoutedEventArgs e)
         {
@@ -125,6 +127,11 @@ namespace Library_Managment.Windows
                 Address = tbAddress.Text
             };
             dr.UpdateCustomer(customer);
+            btnAddCustomer.Visibility = Visibility.Visible;
+            btnUpdateCustomer.Visibility = Visibility.Hidden;
+            btnDeleteCustomer.Visibility = Visibility.Hidden;
+            FillDG();
+            ResetTextBox();
         }
         private void BtnDeleteCustomer_Click(object sender, RoutedEventArgs e)
         {
@@ -137,11 +144,25 @@ namespace Library_Managment.Windows
             {
 
                 dr.DeleteCustomer(cr.Id);
+                btnAddCustomer.Visibility = Visibility.Visible;
+                btnUpdateCustomer.Visibility = Visibility.Hidden;
+                btnDeleteCustomer.Visibility = Visibility.Hidden;
                 FillDG();
+                ResetTextBox();
 
             }
             
         }
         #endregion
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            this.dgCustomers.Items.Clear();
+            List<Customer> customers = dr.SearchCustomers(tbSearch.Text);
+            foreach (Customer customer in customers)
+            {
+                this.dgCustomers.Items.Add(customer);
+            }
+        }
     }
 }
