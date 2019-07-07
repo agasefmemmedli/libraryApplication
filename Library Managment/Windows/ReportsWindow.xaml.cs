@@ -106,5 +106,21 @@ namespace Library_Managment.Windows
             dInfo.SetAccessControl(dSecurity);
 
         }
+
+        private void DpFrom_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dpFrom.SelectedDate>=dpTo.SelectedDate)
+            {
+                dpTo.SelectedDate = dpFrom.SelectedDate.Value.AddDays(1);
+            }
+        }
+
+        private void DpTo_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dpFrom.SelectedDate >= dpTo.SelectedDate)
+            {
+                dpFrom.SelectedDate = dpTo.SelectedDate.Value.AddDays(-1);
+            }
+        }
     }
 }

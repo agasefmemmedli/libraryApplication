@@ -46,9 +46,10 @@ namespace Library_Managment.Windows
 
         private void DgCustomers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            cr = dgCustomers.SelectedItem as Customer;
             if (cr != null)
             {
-                cr = dgCustomers.SelectedItem as Customer;
+                
                 tbCustomerFullName.Text = cr.FullName.ToString();
                 tbPhoneNumber.Text = cr.PhoneNumber.ToString();
                 tbAddress.Text = cr.Address.ToString();

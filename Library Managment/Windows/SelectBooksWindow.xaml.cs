@@ -71,7 +71,11 @@ namespace Library_Managment.Windows
             cmbBookCount.SelectionChanged -= new SelectionChangedEventHandler(CmbBookCount_SelectionChanged);
             
             book  = dgBooks.SelectedItem as Book;
-            tbBookName.Text = book.Name;
+            if (book != null)
+            {
+                tbBookName.Text = book.Name;
+                btnSelectBooks.Visibility = Visibility.Visible;
+            }
             dpReturnDate.SelectedDate = DateTime.Today.AddDays(28);
             dpReturnDate.DisplayDate = DateTime.Today.AddDays(28);
             lblBookPriceCount.Content = book.Price;
@@ -90,6 +94,10 @@ namespace Library_Managment.Windows
         }
         private void DpReturnDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (dpReturnDate.SelectedDate < DateTime.Today)
+            {
+                dpReturnDate.SelectedDate = DateTime.Today.AddDays(1);
+            }
             CalcPrice();
         }
 

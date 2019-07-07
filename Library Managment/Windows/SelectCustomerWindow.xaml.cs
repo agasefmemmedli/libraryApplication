@@ -46,7 +46,12 @@ namespace Library_Managment.Windows
         private void DgCustomers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             customer = dgCustomers.SelectedItem as Customer;
-            lblCustomerFullName.Content = customer.FullName;
+            if (customer != null)
+            {
+                btnSelectCustomer.Visibility = Visibility.Visible;
+                lblCustomerFullName.Content = customer.FullName;
+            }
+           
         }
         private void BtnSelectCustomer_Click(object sender, RoutedEventArgs e)
         {

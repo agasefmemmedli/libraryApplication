@@ -103,18 +103,14 @@ namespace Library_Managment.Windows
 
                 else
                 {
-                    if (MessageBox.Show("Do you want to close window?", "You note selected Books", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
-                    {
-                        this.Close();
-                    }
+                    MessageBox.Show("You not selected Book!!!");
+                    
                 }
             }
             else
             {
-                if (MessageBox.Show("Do you want to close window?", "You note selected Customer", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
-                {
-                    this.Close();
-                }
+                MessageBox.Show("You not selected Customer!!!");
+                
             }
             
         }

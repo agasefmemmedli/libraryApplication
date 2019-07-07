@@ -11,9 +11,9 @@
             <Button x:Name="btnExportToExcell" Content="Export To Excell" HorizontalAlignment="Left" Margin="38,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnExportToExcell_Click"  />
             <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="38,489,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" BorderBrush="#FFAEEA00" Click="BtnClose_Click"  />
         </Grid>
-        <DatePicker x:Name="dpFrom" HorizontalAlignment="Left" Margin="227,10,0,0" VerticalAlignment="Top"  SelectedDateFormat="Short" Width="99"/>
-        <DatePicker x:Name="dpTo" HorizontalAlignment="Left" Margin="341,10,0,0" VerticalAlignment="Top"  SelectedDateFormat="Short" Width="99"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="495,10,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="85" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="-0.185,0.469" Click="BtnSearch_Click"/>
+        <DatePicker x:Name="dpFrom" HorizontalAlignment="Left" Margin="432,10,0,0" SelectedDateChanged="DpFrom_SelectedDateChanged" VerticalAlignment="Top"  SelectedDateFormat="Short" Width="99"/>
+        <DatePicker x:Name="dpTo" HorizontalAlignment="Left" Margin="546,10,0,0" SelectedDateChanged="DpTo_SelectedDateChanged" VerticalAlignment="Top"  SelectedDateFormat="Short" Width="99"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="700,10,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="85" Height="26" BorderBrush="#FFAEEA00" RenderTransformOrigin="-0.185,0.469" Click="BtnSearch_Click"/>
         <DataGrid x:Name="dgReports" HorizontalAlignment="Left" Margin="214,50,0,5" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Width="775" Background="#FFC5D2FF">
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
