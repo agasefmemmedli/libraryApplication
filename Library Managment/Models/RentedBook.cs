@@ -25,14 +25,14 @@ namespace Library_Managment.Models
         public DateTime ReturnDate { get; set; }
 
 
-        public DateTime? InfactDate { get; set; }
-
+        [Required, Column(TypeName = "money")]
+        public decimal CalcPrice { get; set; }
 
         [Required, Column(TypeName = "money")]
         public decimal Price { get; set; }
-
         public Order Order { get; set; }
 
+        public bool isReturn { get; set; }
         public Book Book { get; set; }
     }
 

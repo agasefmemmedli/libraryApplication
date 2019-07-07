@@ -20,7 +20,8 @@
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
                 <DataGridTextColumn Width="300" IsReadOnly="True" Header="Name"  Binding="{Binding Name}" />
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="Author" Binding="{Binding Author}" />
-                <DataGridTextColumn Width="100" IsReadOnly="True" Header="Count" Binding="{Binding Count}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Count" Binding="{Binding CountNow}" />
+                <DataGridTextColumn Width="100" IsReadOnly="True" Visibility="Hidden" Header="Count" Binding="{Binding Count}" />
                 <DataGridTextColumn Width="100" IsReadOnly="True" Header="Price" Binding="{Binding Price}" />
             </DataGrid.Columns>
         </DataGrid>

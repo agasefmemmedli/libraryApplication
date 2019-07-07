@@ -18,6 +18,7 @@ namespace Library_Managment.Models
         [StringLength(50)]
         public string Author { get; set; }
         public int Count { get; set; }
+        public int CountNow { get; set; }
 
         [Required, Column(TypeName = "money")]
         public decimal Price { get; set; }

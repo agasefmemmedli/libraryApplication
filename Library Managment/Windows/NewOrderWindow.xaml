@@ -11,27 +11,27 @@
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         mc:Ignorable="d"
         Title="New Order" Icon="..\Images\ligicon.ico" Height="550" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
+    <Grid HorizontalAlignment="Left">
         <Grid HorizontalAlignment="Left" Width="209" Height="550" VerticalAlignment="Bottom" Margin="0,-29,0,-0.2" Background="#FF5426A6">
-            <Button x:Name="btnSelectCustomer" Content="Select Customer" HorizontalAlignment="Left" Margin="38,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnSelectCustomer_Click" />
-            <Button x:Name="btnSelectBooks" Content="Select Books" HorizontalAlignment="Left" Margin="38,150,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnSelectBooks_Click"/>
-            <Button x:Name="btnSaveOrder" Content="Save Order" HorizontalAlignment="Left" Margin="39,436,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" BorderBrush="#FFAEEA00" Click="BtnSaveOrder_Click"/>
-            <Label x:Name="lblOrderSummary" Content="Order Summary" HorizontalAlignment="Left" Margin="38,389,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
-            <Label x:Name="lblPrice" Content="0" HorizontalAlignment="Left" Margin="153,389,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
-            <Label x:Name="lblBookCountsSum" Content="Book Count" HorizontalAlignment="Left" Margin="38,362,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
-            <Label x:Name="lblBookCount" Content="0" HorizontalAlignment="Left" Margin="153,362,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
-            <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="38,502,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" BorderBrush="#FFAEEA00" Click="BtnClose_Click" />
+            <Button x:Name="btnSelectCustomer" Content="Select Customer" HorizontalAlignment="Left" Margin="23,80,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnSelectCustomer_Click" />
+            <Button x:Name="btnSelectBooks" Content="Select Books" HorizontalAlignment="Left" Margin="23,150,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" Click="BtnSelectBooks_Click"/>
+            <Button x:Name="btnSaveOrder" Content="Save Order" HorizontalAlignment="Left" Margin="24,436,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" BorderBrush="#FFAEEA00" Click="BtnSaveOrder_Click"/>
+            <Label x:Name="lblOrderSummary" Content="Order Summary" HorizontalAlignment="Left" Margin="23,381,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
+            <Label x:Name="lblPrice" Content="0" HorizontalAlignment="Left" Margin="140,381,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
+            <Label x:Name="lblBookCountsSum" Content="Book Count" HorizontalAlignment="Left" Margin="24,354,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
+            <Label x:Name="lblBookCount" Content="0" HorizontalAlignment="Left" Margin="140,354,0,0" VerticalAlignment="Top" Foreground="#FFAEEA00" BorderBrush="#FFAEEA00"/>
+            <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="23,502,0,0" Style="{DynamicResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" Width="142" Height="38" BorderBrush="#FFAEEA00" Click="BtnClose_Click" />
         </Grid>
-        <TextBox x:Name="tbCustomerName" HorizontalAlignment="Left" Height="26" Margin="214,53,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="375"/>
-        <Label x:Name="lblCustomerName" Content="Customer Name" HorizontalAlignment="Left" Margin="214,26,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbCustomerName" HorizontalAlignment="Center" Height="26" Margin="395,37,214,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="375" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblCustomerName" Content="Customer Name" HorizontalAlignment="Left" Margin="515,10,0,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="dgCustomerSelectedBook" SelectedItem="{Binding SelectedBook}" HorizontalAlignment="Left" Margin="214,120,0,9.8" Width="770" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" Background="#FFC5D2FF">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="Name"  Binding="{Binding Name}" />
                 <DataGridTextColumn Width="*" IsReadOnly="True" Visibility="Hidden" Header="Taking Date" Binding="{Binding TakingDate}" />
-                <DataGridTextColumn Width="150" IsReadOnly="True" Header="Return Date" Binding="{Binding ReturnDate}" />
-                <DataGridTextColumn Width="150" IsReadOnly="True" Header="BooksCount" Binding="{Binding BooksCount}" />
-                <DataGridTextColumn Width="150" IsReadOnly="True" Header="Price" Binding="{Binding CalcPrice}" />
+                <DataGridTextColumn Width="200" IsReadOnly="True" Header="Return Date" Binding="{Binding ReturnDate}" />
+                <DataGridTextColumn Width="100" IsReadOnly="True" Header="BooksCount" Binding="{Binding BooksCount}" />
+                <DataGridTextColumn Width="100" IsReadOnly="True" Header="Price" Binding="{Binding CalcPrice}" />
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="lblBooks" Content="Books Name , Return Date , Count and Price" HorizontalAlignment="Left" Margin="214,84,0,0" VerticalAlignment="Top" Width="665"/>

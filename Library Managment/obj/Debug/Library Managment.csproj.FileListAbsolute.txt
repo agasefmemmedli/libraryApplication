@@ -26,7 +26,6 @@ C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Window
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\DashboardWindow.g.cs
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\DashboardWindow.baml
 C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\MaterialDesignColors.pdb
-C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library_Managment.Migrations.CreateDatabase.resources
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\NewOrderWindow.g.cs
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\NewOrderWindow.baml
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\SelectCustomerWindow.g.cs
@@ -43,4 +42,13 @@ C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Window
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\AdministratorsWindow.baml
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\ReportsWindow.g.cs
 C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Windows\ReportsWindow.baml
-C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library_Managment.Migrations.CreateNewTableInDatabase.resources
+C:\Users\agase\source\repos\Library Managment\Library Managment\obj\Debug\Library_Managment.Migrations.CreateDatabase.resources
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\ClosedXML.dll
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\ExcelNumberFormat.dll
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\FastMember.dll
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\System.IO.Packaging.dll
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\ClosedXML.pdb
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\ClosedXML.xml
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\agase\source\repos\Library Managment\Library Managment\bin\Debug\ExcelNumberFormat.xml

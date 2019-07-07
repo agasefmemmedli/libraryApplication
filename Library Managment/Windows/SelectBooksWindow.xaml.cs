@@ -50,13 +50,20 @@ namespace Library_Managment.Windows
        
         private void BtnSelectBooks_Click(object sender, RoutedEventArgs e)
         {
-            sBook.Id = book.Id;
-            sBook.Name = book.Name;
-            sBook.BooksCount = Convert.ToInt32(cmbBookCount.SelectedItem);
-            sBook.TakingDate = DateTime.Today;
-            sBook.ReturnDate = dpReturnDate.DisplayDate;
-            sBook.CalcPrice = Convert.ToDecimal(lblBookPriceCount.Content);
-            OnSelected(sBook, new EventArgs());
+            List<SelectedBook> selecteds = new List<SelectedBook>();
+            for (int a =0;a<count; a++)
+            {
+                
+                sBook.Id = book.Id;
+                sBook.Name = book.Name;
+                sBook.TakingDate = DateTime.Today;
+                sBook.ReturnDate = dpReturnDate.DisplayDate;
+                sBook.CalcPrice = Math.Round(Convert.ToDecimal(lblBookPriceCount.Content)/count,2);
+                sBook.Price = book.Price;
+
+                selecteds.Add(sBook);
+            }
+            OnSelected(selecteds, new EventArgs());
             this.Close();
         }
         private void DgBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -69,7 +76,7 @@ namespace Library_Managment.Windows
             dpReturnDate.DisplayDate = DateTime.Today.AddDays(28);
             lblBookPriceCount.Content = book.Price;
             cmbBookCount.Items.Clear();
-            for (int a = 1; a <= book.Count; a++)
+            for (int a = 1; a <= book.CountNow; a++)
             {
                 cmbBookCount.Items.Add(a);
             }
@@ -89,12 +96,11 @@ namespace Library_Managment.Windows
         private void CalcPrice()
         {
             decimal different = Convert.ToDecimal(dpReturnDate.SelectedDate.Value.Date.Subtract(DateTime.Today).TotalDays);
-            decimal price = Math.Round(((book.Price / 28) * different * count), 2);
+            decimal price = Math.Round(((book.Price / 28) * different)*count, 2);
             lblBookPriceCount.Content = price.ToString();
         }
         private void CmbBookCount_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show(cmbBookCount.SelectedItem.ToString());
             count = Convert.ToDecimal(cmbBookCount.SelectedItem.ToString());
             CalcPrice();
         }

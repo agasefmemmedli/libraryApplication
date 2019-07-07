@@ -37,49 +37,26 @@ namespace Library_Managment.Utilities
         }
 
 
-        public List<RentedBookList> FillReportsList()
+        public List<RentedBookList> FillReportsList(DateTime? firstDay,DateTime? lastDay)
         {
-            List<RentedBookList> rentedBooks = _context.RentedBooks.Where(r=>r.InfactDate!=null).Select(rb => new RentedBookList
+            List<RentedBookList> rentedBooks = _context.RentedBooks.Where(r=>r.isReturn!=false && r.ReturnDate>=firstDay && r.ReturnDate <= lastDay).Select(rb => new RentedBookList
             {
                 Id = rb.Id,
                 CustomerFullName = rb.Order.Customer.FullName,
                 BookName = rb.Book.Name,
                 TakingDate = rb.Order.TakedDate,
                 ReturnDate = rb.ReturnDate,
-                InfactDate = rb.InfactDate,
                 Price = rb.Price
             }).ToList();
 
             return rentedBooks;
         }
-        public class RentedBookList
-        {
-            public int Id { get; set; }
-
-            public string CustomerFullName { get; set; }
-            public string BookName { get; set; }
-            public DateTime TakingDate { get; set; }
-            public DateTime ReturnDate { get; set; }
-            public DateTime? InfactDate { get; set; }
-            public decimal Price { get; set; }
-        }
-
-
-        public class SelectedBook
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-            public DateTime TakingDate { get; set; }
-            public DateTime ReturnDate { get; set; }
-            public int BooksCount { get; set; }
-            public decimal CalcPrice { get; set; }
-
-        }
+       
         public List<ReturnDashboardList> FillDashboardList(DateTime date)
         {
             if (date >= DateTime.Today)
             {
-                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate == date && r.InfactDate==null).GroupBy(r => r.OrderId).Select(rtb => new ReturnDashboardList
+                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate == date && r.isReturn==false).GroupBy(r => r.OrderId).Select(rtb => new ReturnDashboardList
                 {
                     Id = rtb.Key,
                     BooksCount = rtb.Count(),
@@ -90,7 +67,7 @@ namespace Library_Managment.Utilities
             }
             else
             {
-                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate <= date && r.InfactDate == null).GroupBy(r => r.OrderId).Select(rtb => new ReturnDashboardList
+                List<ReturnDashboardList> returnLists = _context.RentedBooks.Include("Customer").Where(r => r.ReturnDate <= date && r.isReturn == false).GroupBy(r => r.OrderId).Select(rtb => new ReturnDashboardList
                 {
                     Id = rtb.Key,
                     BooksCount = rtb.Count(),
@@ -229,25 +206,85 @@ namespace Library_Managment.Utilities
             return customers;
         }
 
-        public List<RentedBook> SearchRentedBook(int id)
+        public List<ReturnRentedBookList> SearchRentedBook(int id)
         {
-            List<RentedBook> rentedBooks = _context.RentedBooks.Where(r => r.Order.CustomerId==id&&r.InfactDate==null).ToList();
+            List<ReturnRentedBookList> rentedBooks = _context.RentedBooks.Include("Book").Include("Order").Where(r => r.Order.CustomerId==id&&r.isReturn==false).GroupBy(r => r.BookId).Select(rs=> new ReturnRentedBookList
+            {
+                Id=rs.Key,
+                RentedBookId=rs.FirstOrDefault().Id,
+                BookName = rs.FirstOrDefault().Book.Name,
+                TakingDate = rs.FirstOrDefault().Order.TakedDate,
+                ReturnDate = rs.FirstOrDefault().ReturnDate,
+                isReturn = rs.FirstOrDefault().isReturn,
+                Count =rs.Count(),
+                CalcPrice = rs.FirstOrDefault().CalcPrice,
+                Price = rs.FirstOrDefault().Price
+
+
+            }
+            ).ToList();
+
             return rentedBooks;
         }
 
         #endregion
 
-        public void RentBook(int id, int count)
+        public void RentBook(int id)
         {
             Book book = _context.Books.Find(id);
-            book.Count -= count;
+            book.CountNow -= 1;
             _context.SaveChanges();
         }
-        public void ReturnBook(int id, int count)
+        public void ReturnBook(int id,int orderId,decimal price)
         {
             Book book = _context.Books.Find(id);
-            book.Count += count;
+            book.CountNow += 1;
             _context.SaveChanges();
+            RentedBook rentedBook = _context.RentedBooks.Find(orderId);
+            rentedBook.isReturn = true;
+            rentedBook.CalcPrice = price;
+            _context.SaveChanges();
+        }
+
+
+        public class ReturnRentedBookList
+        {
+            public int Id { get; set; }
+
+            public int RentedBookId { get; set; }
+            public string BookName { get; set; }
+            public DateTime TakingDate { get; set; }
+            public DateTime ReturnDate { get; set; }
+            public bool isReturn { get; set; }
+            public int Count { get; set; }
+            public decimal CalcPrice { get; set; }
+
+            public decimal Price { get; set; }
+        }
+
+
+
+        public class RentedBookList
+        {
+            public int Id { get; set; }
+
+            public string CustomerFullName { get; set; }
+            public string BookName { get; set; }
+            public DateTime TakingDate { get; set; }
+            public DateTime ReturnDate { get; set; }
+            public decimal Price { get; set; }
+        }
+
+
+        public class SelectedBook
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public DateTime TakingDate { get; set; }
+            public DateTime ReturnDate { get; set; }
+            public decimal Price { get; set; }
+            public decimal CalcPrice { get; set; }
+
         }
     }
 

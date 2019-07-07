@@ -65,7 +65,7 @@ namespace Library_Managment.Windows
             {
                 tbBookName.Text = bk.Name.ToString();
                 tbAuthorName.Text = bk.Author.ToString();
-                tbBookCount.Text = bk.Count.ToString();
+                tbBookCount.Text = bk.CountNow.ToString();
                 tbPrice.Text = bk.Price.ToString();
             }
             
@@ -130,10 +130,11 @@ namespace Library_Managment.Windows
             { 
                Name= tbBookName.Text ,
                Author= tbAuthorName.Text,
-               Count=Convert.ToInt32(tbBookCount.Text),
+               CountNow= Convert.ToInt32(tbBookCount.Text),
+               Count =Convert.ToInt32(tbBookCount.Text),
                Price=Convert.ToDecimal(tbPrice.Text)
             };
-            dr.AddBooks(bk);
+            dr.AddBooks(book);
             FillDG();
             ResetTextBox();
         }
@@ -148,7 +149,8 @@ namespace Library_Managment.Windows
                 Id = bk.Id,
                 Name = tbBookName.Text,
                 Author = tbAuthorName.Text,
-                Count = Convert.ToInt32(tbBookCount.Text),
+                CountNow = Convert.ToInt32(tbBookCount.Text),
+                Count = (Convert.ToInt32(tbBookCount.Text) - bk.CountNow) + bk.Count,
                 Price = Convert.ToDecimal(tbPrice.Text)
             };
             dr.UpdateBooks(newBook);

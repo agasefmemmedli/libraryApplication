@@ -57,8 +57,8 @@ namespace Library_Managment.Windows
         }
         private void BookSelected(object sender, EventArgs e)
         {
-            SelectedBook sBook = sender as SelectedBook;
-            selectedBooks.Add(sBook);
+            List<SelectedBook> sBooks = sender as List<SelectedBook>;
+            selectedBooks.AddRange(sBooks);
             this.dgCustomerSelectedBook.Items.Clear();
             decimal price = 0;
             int bCount = 0;
@@ -66,7 +66,7 @@ namespace Library_Managment.Windows
             {
                 this.dgCustomerSelectedBook.Items.Add(book);
                 price += book.CalcPrice;
-                bCount += book.BooksCount;
+                bCount += 1;
             }
             lblBookCount.Content = bCount;
             lblPrice.Content = price;
@@ -87,18 +87,20 @@ namespace Library_Managment.Windows
                         RentedBook rentedBook = new RentedBook();
                         foreach (SelectedBook book in selectedBooks)
                         {
-                            for (int a = 0; a < book.BooksCount; a++)
-                            {
-                                rentedBook.BookId = book.Id;
-                                rentedBook.OrderId = order.Id;
-                                rentedBook.ReturnDate = book.ReturnDate;
-                                rentedBook.Price = book.CalcPrice / Convert.ToDecimal(book.BooksCount);
-                                dr.RentBook(book.Id,book.BooksCount);
-                                dr.AddRentBook(rentedBook);
-                            }
+
+                            rentedBook.BookId = book.Id;
+                            rentedBook.OrderId = order.Id;
+                            rentedBook.ReturnDate = book.ReturnDate;
+                            rentedBook.CalcPrice = book.CalcPrice;
+                            rentedBook.Price = book.Price;
+                            dr.RentBook(book.Id);
+                            dr.AddRentBook(rentedBook);
                         }
                     }
+                    this.Close();
                 }
+
+
                 else
                 {
                     if (MessageBox.Show("Do you want to close window?", "You note selected Books", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)

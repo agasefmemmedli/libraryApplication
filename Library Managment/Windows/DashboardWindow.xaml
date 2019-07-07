@@ -23,7 +23,7 @@
         </Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="511" Margin="214,0,0,0" VerticalAlignment="Top" Width="770" SelectionChanged="TabControl_SelectionChanged">
             <TabItem x:Name="tabToday" Header="Return Today" Background="#FFAEEA00" Foreground="Black" BorderBrush="#FF673AB7" IsSelected="True">
-                <DataGrid x:Name="dgToday" Margin="0,0,-5,-5.6" Style="{DynamicResource MaterialDesignDataGrid}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" SelectionChanged="DataGrid_SelectionChanged" Background="#FFC5D2FF">
+                <DataGrid x:Name="dgToday" SelectedItem="{Binding ReturnDashboardList}" Margin="0,0,-5,-5.6" Style="{DynamicResource MaterialDesignDataGrid}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" SelectionChanged="DataGrid_SelectionChanged" Background="#FFC5D2FF">
                     <DataGrid.Columns>
                         <DataGridTextColumn Width="*" IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
                         <DataGridTextColumn Width="*" IsReadOnly="True" Header="Customer FullName"  Binding="{Binding CustomerFullName}" />
@@ -33,7 +33,7 @@
                 </DataGrid>
             </TabItem>
             <TabItem x:Name="tabTomorrow" Header="Return Tomorrow" BorderBrush="#FF673AB7" Foreground="Black" Background="#FFAEEA00">
-                <DataGrid x:Name="dgTomorrow" Margin="0,0,-5,-5.6" Style="{DynamicResource MaterialDesignDataGrid}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" SelectionChanged="DataGrid_SelectionChanged" Background="#FFC5D2FF">
+                <DataGrid x:Name="dgTomorrow" Margin="0,0,-5,-5.6" SelectedItem="{Binding ReturnDashboardList}" Style="{DynamicResource MaterialDesignDataGrid}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" SelectionChanged="DataGrid_SelectionChanged" Background="#FFC5D2FF">
                     <DataGrid.Columns>
                         <DataGridTextColumn Width="*" IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
                         <DataGridTextColumn Width="*" IsReadOnly="True" Header="Customer FullName"  Binding="{Binding CustomerFullName}" />
@@ -43,7 +43,7 @@
                 </DataGrid>
             </TabItem>
             <TabItem x:Name="tabDelay" Header="Delay" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="54" BorderBrush="#FF673AB7" Foreground="Black" Margin="-2.2,0,0,0" RenderTransformOrigin="0.707,0.609" Background="#FFAEEA00">
-                <DataGrid x:Name="dgDelay" Margin="0,0,-5,-5.6" Style="{DynamicResource MaterialDesignDataGrid}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" SelectionChanged="DataGrid_SelectionChanged" Background="#FFC5D2FF">
+                <DataGrid x:Name="dgDelay" Margin="0,0,-5,-5.6" SelectedItem="{Binding ReturnDashboardList}" Style="{DynamicResource MaterialDesignDataGrid}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" SelectionChanged="DataGrid_SelectionChanged" Background="#FFC5D2FF">
                     <DataGrid.Columns>
                         <DataGridTextColumn Width="*" IsReadOnly="True" Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
                         <DataGridTextColumn Width="*" IsReadOnly="True" Header="Customer FullName"  Binding="{Binding CustomerFullName}" />
