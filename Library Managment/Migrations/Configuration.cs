@@ -15,6 +15,8 @@ namespace Library_Managment.Migrations
 
         protected override void Seed(Library_Managment.DAL.AppContext context)
         {
+
+            //Books
             Book book1 = new Book
             {
                 Name = "The Lion, the Witch and the Wardrobe",
@@ -163,7 +165,7 @@ namespace Library_Managment.Migrations
             context.SaveChanges();
 
 
-
+            //Customers
             Customer cust1 = new Customer
             {
                 FullName = "Memmedli Agasef",
@@ -239,12 +241,12 @@ namespace Library_Managment.Migrations
 
             context.SaveChanges();
 
-
+            //Administrators
             Administrator admin = new Administrator
             {
-                Login = "Admin",
-                Password = "admin",
-                FullName = "Memmedli Aga",
+                Login = "Yolcu",
+                Password = "Nasib",
+                FullName = "Yolcu Nasib",
                 CreateDate = DateTime.Today.AddDays(-309),
                 PhoneNumber = "+9942995922",
                 Address = "Baku,Nizami,Naxcivaski 72",

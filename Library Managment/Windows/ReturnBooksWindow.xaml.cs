@@ -17,7 +17,7 @@ namespace Library_Managment.Windows
         List<ReturnRentedBookList> returnRentedBookLists;
         List<ReturnRentedBookList> rentedBooks;
         ReturnRentedBookList rrb;
-        DataRelation dr;
+        private readonly DataRelation dr;
         decimal price;
         decimal delay;
         Customer customer;
@@ -36,6 +36,7 @@ namespace Library_Managment.Windows
             selectCustomerWindow.ShowDialog();
         }
 
+        //return selected customer and his rented books
         private void CustomerSelected(object sender, EventArgs e)
         {
             lblBookPriceCount.Content = 0;
@@ -73,17 +74,17 @@ namespace Library_Managment.Windows
                 
 
                 decimal different = Convert.ToDecimal(DateTime.Today.Subtract(rrb.TakingDate).TotalDays);
-                decimal Calcprice = Math.Round(((rrb.Price / 28) * different * rrb.Count), 2);
+                decimal CalcPrice = Math.Round(((rrb.Price / 28) * different * rrb.Count), 2);
 
-                decimal Calcdelay = 0;
+                decimal CalcDelay = 0;
                 if (rrb.ReturnDate < DateTime.Today)
                 {
                     decimal differentDelay = Convert.ToDecimal(DateTime.Today.Subtract(rrb.ReturnDate).TotalDays);
-                    Calcdelay = Math.Round(((rrb.Price / 200) * differentDelay * rrb.Count), 2);
+                    CalcDelay = Math.Round(((rrb.Price / 200) * differentDelay * rrb.Count), 2);
                 }
-                rrb.CalcPrice = Calcprice + Calcdelay;
-                price += Calcprice;
-                delay += Calcdelay;
+                rrb.CalcPrice = CalcPrice + CalcDelay;
+                price += CalcPrice;
+                delay += CalcDelay;
                 rrb.ReturnDate = DateTime.Today;
                 lblBookPriceCount.Content = price;
                 lbldelayCount.Content = delay;

@@ -20,7 +20,7 @@ namespace Library_Managment.Windows
     public partial class CustomersWindow : Window
     {
         DAL.AppContext context = new DAL.AppContext();
-        DataRelation dr;
+        private readonly DataRelation dr;
         Customer cr;
         public CustomersWindow()
         {
@@ -46,10 +46,13 @@ namespace Library_Managment.Windows
 
         private void DgCustomers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+          
             cr = dgCustomers.SelectedItem as Customer;
             if (cr != null)
             {
-                
+                btnAddCustomer.Visibility = Visibility.Hidden;
+                btnUpdateCustomer.Visibility = Visibility.Visible;
+                btnDeleteCustomer.Visibility = Visibility.Visible;
                 tbCustomerFullName.Text = cr.FullName.ToString();
                 tbPhoneNumber.Text = cr.PhoneNumber.ToString();
                 tbAddress.Text = cr.Address.ToString();

@@ -23,7 +23,7 @@ namespace Library_Managment.Windows
     public partial class NewOrder : Window
     {
         DAL.AppContext context = new DAL.AppContext();
-        DataRelation dr;
+        private readonly DataRelation dr;
         Customer customer;
         List<SelectedBook> selectedBooks;
         public NewOrder()
@@ -43,10 +43,13 @@ namespace Library_Managment.Windows
             
         }
 
+        //return selected customer
         private void CustomerSelected(object sender, EventArgs e)
         {
             customer = sender as Customer;
             tbCustomerName.Text = customer.FullName;
+            selectedBooks.Clear();
+            this.dgCustomerSelectedBook.Items.Clear();
         }
 
         private void BtnSelectBooks_Click(object sender, RoutedEventArgs e)
@@ -55,10 +58,14 @@ namespace Library_Managment.Windows
             selectBooksWindow.OnSelected += new EventHandler(BookSelected);
             selectBooksWindow.ShowDialog();
         }
+
+        //return selected books
         private void BookSelected(object sender, EventArgs e)
         {
+            //add selected book in list
             List<SelectedBook> sBooks = sender as List<SelectedBook>;
             selectedBooks.AddRange(sBooks);
+            
             this.dgCustomerSelectedBook.Items.Clear();
             decimal price = 0;
             int bCount = 0;

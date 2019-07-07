@@ -20,7 +20,7 @@ namespace Library_Managment.Windows
     public partial class AdministratorsWindow : Window
     {
         DAL.AppContext context = new DAL.AppContext();
-        DataRelation dr;
+        private readonly DataRelation dr;
         Administrator ad;
         public AdministratorsWindow()
         {
@@ -30,8 +30,11 @@ namespace Library_Managment.Windows
             FillDG();
         }
 
+        //Fill DataGrid
         public void FillDG()
         {
+
+           
             this.dgAdministrator.Items.Clear();
             List<Administrator> Administrators = dr.FillAdministratorsList();
             foreach (Administrator administrator in Administrators)

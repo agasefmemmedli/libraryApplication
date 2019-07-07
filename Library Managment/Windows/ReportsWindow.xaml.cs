@@ -81,7 +81,7 @@ namespace Library_Managment.Windows
                 System.IO.StreamWriter file1 = new System.IO.StreamWriter(_path);
                 file1.WriteLine(result);
                 file1.Close();
-                MessageBox.Show(" Exporting DataGrid data to Excel file created.xls");
+                MessageBox.Show(" Exporting successful");
             }
             catch (Exception)
             {
@@ -94,11 +94,6 @@ namespace Library_Managment.Windows
             if (!exists)
             {
                 DirectoryInfo di = System.IO.Directory.CreateDirectory(file);
-                MessageBox.Show("The Folder is created Sucessfully");
-            }
-            else
-            {
-                MessageBox.Show("The Folder already exists");
             }
             DirectoryInfo dInfo = new DirectoryInfo(file);
             DirectorySecurity dSecurity = dInfo.GetAccessControl();

@@ -22,7 +22,7 @@ namespace Library_Managment.Windows
     public partial class SelectBooksWindow : Window
     {
         DAL.AppContext context = new DAL.AppContext();
-        DataRelation dr;
+        private readonly DataRelation dr;
         SelectedBook sBook;
         decimal count = 1;
         public event EventHandler OnSelected;

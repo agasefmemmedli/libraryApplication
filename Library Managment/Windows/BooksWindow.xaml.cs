@@ -23,7 +23,7 @@ namespace Library_Managment.Windows
     public partial class BooksWindow : Window
     {
         DAL.AppContext context = new DAL.AppContext();
-        DataRelation dr;
+        private readonly DataRelation dr;
         Book bk;
         public BooksWindow()
         {

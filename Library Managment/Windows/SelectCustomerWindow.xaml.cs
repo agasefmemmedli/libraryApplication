@@ -22,7 +22,7 @@ namespace Library_Managment.Windows
     public partial class SelectCustomerWindow : Window
     {
         DAL.AppContext context = new DAL.AppContext();
-        DataRelation dr;
+        private readonly DataRelation dr;
         Customer customer;
 
         public event EventHandler OnSelected;

@@ -18,8 +18,9 @@ namespace Library_Managment.Utilities
          public bool LoginCheck(string login, string password)
         {
             
-            string z = _context.Administrators.Where(l => l.Login == login).Select(p => p.Password).First();
-            if (z == password)
+            string realPass = _context.Administrators.Where(l => l.Login == login).Select(p => p.Password).First();
+
+            if (realPass == password)
             {
                 return true;
             }
