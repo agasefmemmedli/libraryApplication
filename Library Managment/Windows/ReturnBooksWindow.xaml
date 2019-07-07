@@ -32,7 +32,7 @@
         </DataGrid>
         <DataGrid x:Name="dgCustomerTackedBook" SelectionChanged="DgCustomerTackedBook_SelectionChanged" SelectedItem="{Binding ReturnRentedBookList}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" HorizontalAlignment="Left" Margin="214,95,0,235.8" Width="690" Background="#FFC5D2FF">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Id"  Binding="{Binding Id}" />
+                <DataGridTextColumn Width="*" IsReadOnly="True" Header="Id" Visibility="Hidden"  Binding="{Binding Id}" />
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="Name"  Binding="{Binding BookName}" />
                 <DataGridTextColumn Width="*" IsReadOnly="True" Header="Return Date" Binding="{Binding ReturnDate}" />
                 <DataGridTextColumn Width="100" IsReadOnly="True" Header="Count" Binding="{Binding Count}" />
