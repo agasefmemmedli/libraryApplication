@@ -1,4 +1,4 @@
-# Libary Aplication
+# Libary Application
 Application for small and medium libraries
 
 ## Login - Yolcu ###Password - Nasib
